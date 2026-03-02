@@ -10,7 +10,8 @@ export default {
       colors: {
         'avec-cyan': '#00D9FF',
         'avec-purple': '#9B8FF5',
-        'avec-dark': '#1E2A4A',
+        'avec-dark': '#0A0E27',
+        'avec-navy': '#1E2A4A',
       },
     },
   },
