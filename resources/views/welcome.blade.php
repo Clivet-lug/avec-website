@@ -16,13 +16,12 @@
     <!-- Floating orbs -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-avec-cyan/20 rounded-full blur-3xl animate-pulse"></div>
-        <div
-            class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-avec-purple/20 rounded-full blur-3xl animate-pulse delay-1000">
-        </div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-avec-purple/20 rounded-full blur-3xl animate-pulse"
+            style="animation-delay: 1s;"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 glass border-b border-white/10">
+    <nav class="fixed w-full top-0 z-50 glass border-b border-white/10" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
@@ -44,22 +43,44 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-white" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" id="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
+                    <svg class="w-6 h-6 hidden" id="close-icon" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
                 </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="pt-4 pb-3 space-y-3">
+                    <a href="#home"
+                        class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">Home</a>
+                    <a href="#services"
+                        class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">Services</a>
+                    <a href="#about"
+                        class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">About</a>
+                    <a href="#leadership"
+                        class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">Leadership</a>
+                    <a href="#contact"
+                        class="block px-6 py-2 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full text-sm font-semibold text-center mobile-link">
+                        Engage AVEC
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="max-w-7xl mx-auto px-6 py-20 w-full">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Text Content -->
-                <div class="space-y-8 animate-fade-in-up">
+                <div class="space-y-8 fade-in-up">
                     <div class="inline-block">
                         <span class="px-4 py-2 glass rounded-full text-sm font-medium text-avec-cyan">
                             Building Africa's Digital Future
@@ -108,10 +129,9 @@
                 </div>
 
                 <!-- Visual Element -->
-                <div class="relative">
+                <div class="relative fade-in-up" style="animation-delay: 0.3s;">
                     <div
                         class="glass glass-hover rounded-3xl p-8 transform hover:scale-105 transition-all duration-500">
-                        <!-- 3D Geometric Animation -->
                         <div class="aspect-square relative">
                             <svg viewBox="0 0 200 200" class="w-full h-full animate-spin-slow">
                                 <defs>
@@ -121,10 +141,10 @@
                                         <stop offset="100%" style="stop-color:#9B8FF5;stop-opacity:1" />
                                     </linearGradient>
                                 </defs>
-                                <polygon points="100,10 40,198 190,78 10,78 160,198" fill="none" stroke="url(#grad1)"
-                                    stroke-width="2" opacity="0.5" />
-                                <polygon points="100,30 60,170 170,90 30,90 140,170" fill="none" stroke="url(#grad1)"
-                                    stroke-width="2" opacity="0.7" />
+                                <polygon points="100,10 40,198 190,78 10,78 160,198" fill="none"
+                                    stroke="url(#grad1)" stroke-width="2" opacity="0.5" />
+                                <polygon points="100,30 60,170 170,90 30,90 140,170" fill="none"
+                                    stroke="url(#grad1)" stroke-width="2" opacity="0.7" />
                                 <circle cx="100" cy="100" r="50" fill="none" stroke="url(#grad1)"
                                     stroke-width="2" opacity="0.9" />
                             </svg>
@@ -135,11 +155,12 @@
         </div>
     </section>
 
+
     <!-- Services Section -->
     <section id="services" class="relative py-20">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Section Header -->
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 fade-in-section">
                 <span class="text-avec-cyan font-semibold text-sm uppercase tracking-wider">What We Do</span>
                 <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">
                     Comprehensive Technology Solutions
@@ -152,7 +173,7 @@
             <!-- Services Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Service Card 1 -->
-                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer">
+                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer fade-in-section">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -168,7 +189,8 @@
                 </div>
 
                 <!-- Service Card 2 -->
-                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer">
+                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer fade-in-section"
+                    style="animation-delay: 0.1s;">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-purple to-avec-cyan rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -185,7 +207,8 @@
                 </div>
 
                 <!-- Service Card 3 -->
-                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer">
+                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer fade-in-section"
+                    style="animation-delay: 0.2s;">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,7 +225,8 @@
                 </div>
 
                 <!-- Service Card 4 -->
-                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer">
+                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer fade-in-section"
+                    style="animation-delay: 0.3s;">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-purple to-avec-cyan rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,7 +241,8 @@
                 </div>
 
                 <!-- Service Card 5 -->
-                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer">
+                <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer fade-in-section"
+                    style="animation-delay: 0.4s;">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,7 +265,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Content -->
-                <div class="space-y-6">
+                <div class="space-y-6 fade-in-section">
                     <span class="text-avec-purple font-semibold text-sm uppercase tracking-wider">About AVEC</span>
                     <h2 class="text-4xl md:text-6xl font-display font-bold">
                         Zambian. Woman-led. <span class="text-avec-cyan">Technology-driven.</span>
@@ -258,7 +283,7 @@
                 </div>
 
                 <!-- Vision & Mission -->
-                <div class="space-y-6">
+                <div class="space-y-6 fade-in-section" style="animation-delay: 0.2s;">
                     <div class="glass rounded-2xl p-8 border-l-4 border-avec-cyan">
                         <h3 class="text-2xl font-display font-bold mb-4 text-avec-cyan">Vision</h3>
                         <p class="text-gray-300 leading-relaxed">
@@ -281,16 +306,23 @@
     <!-- Leadership Section -->
     <section id="leadership" class="relative py-20">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 fade-in-section">
                 <span class="text-avec-cyan font-semibold text-sm uppercase tracking-wider">Leadership</span>
                 <h2 class="text-4xl md:text-6xl font-display font-bold mt-4">Visionary Leadership</h2>
             </div>
 
-            <div class="glass rounded-3xl p-12 text-center">
-                <div
-                    class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-full flex items-center justify-center text-4xl font-bold">
-                    VNK
-                </div>
+            <div class="glass rounded-3xl p-12 text-center fade-in-section" style="animation-delay: 0.2s;">
+                <!-- Photo or Initials Circle -->
+                @if (file_exists(public_path('images/violet-kaponda.jpg')))
+                    <img src="{{ asset('images/violet-kaponda.jpg') }}" alt="Violet Nswana Kaponda"
+                        class="w-32 h-32 mx-auto mb-6 rounded-full object-cover ring-4 ring-avec-cyan/50">
+                @else
+                    <div
+                        class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-full flex items-center justify-center text-4xl font-bold">
+                        VNK
+                    </div>
+                @endif
+
                 <h3 class="text-3xl font-display font-bold mb-2">Violet Nswana Kaponda</h3>
                 <p class="text-avec-cyan text-lg font-semibold mb-6">Founder & Director</p>
                 <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
@@ -298,65 +330,6 @@
                     digital capability and enabling institutions to use data and AI responsibly.
                 </p>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="relative py-20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-avec-purple font-semibold text-sm uppercase tracking-wider">Get In Touch</span>
-                <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Let's Build Together</h2>
-                <p class="text-xl text-gray-300">
-                    Ready to transform your digital infrastructure? We're here to help.
-                </p>
-            </div>
-
-            <form action="{{ route('contact.submit') }}" method="POST" class="glass rounded-3xl p-12 space-y-6">
-                @csrf
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">First Name</label>
-                        <input type="text" name="first_name" required
-                            class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Last Name</label>
-                        <input type="text" name="last_name" required
-                            class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5">
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Email</label>
-                        <input type="email" name="email" required
-                            class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Phone</label>
-                        <input type="tel" name="phone"
-                            class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium mb-2">Organization</label>
-                    <input type="text" name="organization"
-                        class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium mb-2">Message</label>
-                    <textarea name="message" rows="5" required
-                        class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5"></textarea>
-                </div>
-
-                <button type="submit"
-                    class="w-full px-8 py-4 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
-                    Send Message
-                </button>
-            </form>
         </div>
     </section>
 
@@ -400,7 +373,9 @@
         </div>
     </footer>
 
+
     <style>
+        /* Animations */
         @keyframes spin-slow {
             from {
                 transform: rotate(0deg);
@@ -415,10 +390,6 @@
             animation: spin-slow 20s linear infinite;
         }
 
-        .animate-fade-in-up {
-            animation: fadeInUp 1s ease-out;
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -430,14 +401,69 @@
                 transform: translateY(0);
             }
         }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Prevent horizontal scroll and fix glitches */
+        body,
+        html {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        /* Smooth navbar transition */
+        #navbar {
+            transition: all 0.3s ease;
+        }
+
+        #navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Fix any layout issues */
+        * {
+            box-sizing: border-box;
+        }
     </style>
+
 
     <script>
         // Mobile menu toggle
-        document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
-            // Add mobile menu logic here
-            alert('Mobile menu - to be implemented');
-        });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking a link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        }
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -452,6 +478,57 @@
                 }
             });
         });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission with validation
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                const requiredFields = this.querySelectorAll('[required]');
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('ring-2', 'ring-red-500');
+                    } else {
+                        field.classList.remove('ring-2', 'ring-red-500');
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Please fill in all required fields');
+                }
+            });
+        }
     </script>
 </body>
 
