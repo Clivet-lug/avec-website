@@ -7,44 +7,39 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BlogPostController as AdminBlogPostController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\TeamMemberController as AdminTeamMemberController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::post('/contact', function (Request $request) {
-//     $validated = $request->validate([
-//         'first_name' => 'required',
-//         'last_name' => 'required',
-//         'email' => 'required|email',
-//         'phone' => 'nullable',
-//         'organization' => 'nullable',
-//         'message' => 'required',
-//     ]);
-
-//     // TODO: Send email here (we'll set this up next)
-//     // For now, just return success
-
-//     return back()->with('success', 'Thank you! We will get back to you soon.');
-// })->name('contact.submit');
-
-// Homepage
+// Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-// About
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-
-// Services
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
-
-// Team
 Route::get('/team', [TeamController::class, 'index'])->name('team');
-
-// Contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
-
-// Blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
+
+// Auth Routes
+Auth::routes(['register' => false]); // Disable public registration
+
+// Admin Routes (Protected)
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Blog Management
+    Route::resource('blog', AdminBlogPostController::class);
+
+    // Category Management
+    Route::resource('categories', BlogCategoryController::class);
+
+    // Team Management
+    Route::resource('team', AdminTeamMemberController::class);
+
+    Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+    Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+});
