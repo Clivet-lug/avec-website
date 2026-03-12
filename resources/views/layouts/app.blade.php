@@ -33,7 +33,7 @@
     @include('components.footer')
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/260" target="_blank"
+    <a href="https://wa.me/260763959660" target="_blank"
         class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all transform hover:scale-110">
         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path

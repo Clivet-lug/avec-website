@@ -310,3 +310,36 @@ html:not(.dark) .glass-hover:hover {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+/* Network Lines Animation */
+@keyframes flowLine {
+    to {
+        stroke-dashoffset: -18;
+    }
+}
+
+@keyframes pulseNode {
+    0%,
+    100% {
+        r: 5;
+        opacity: 1;
+    }
+    50% {
+        r: 7;
+        opacity: 0.6;
+    }
+}
+
+.network-line {
+    transition: opacity 0.5s ease;
+}
+
+.network-node {
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.network-node:hover {
+    r: 9;
+    opacity: 1 !important;
+}

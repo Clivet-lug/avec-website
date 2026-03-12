@@ -1,23 +1,25 @@
 @extends('layouts.app')
 
 @section('title', 'AVEC Technologies - Building Digital Systems for Africa')
-@section('meta_description', 'Digital Infrastructure & AI Intelligence Partner for Africa. We build the systems that
+@section('meta_description',
+    'Digital Infrastructure & AI Intelligence Partner for Africa. We build the systems that
     power African economies.')
 
 @section('content')
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-6 py-20 w-full">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="home" class="relative flex items-center pt-24 pb-8 min-h-[85vh]">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <!-- Text Content -->
-                <div class="space-y-8 fade-in-up">
+                <div class="space-y-5 fade-in-up">
                     <div class="inline-block">
                         <span class="px-4 py-2 glass rounded-full text-sm font-medium text-avec-cyan">
                             Building Africa's Digital Future
                         </span>
                     </div>
 
-                    <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight dark:text-white text-avec-dark">
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-display font-bold leading-[1.1] dark:text-white text-avec-dark">
                         Digital Infrastructure &
                         <span class="bg-gradient-to-r from-avec-cyan to-avec-purple bg-clip-text text-transparent">
                             AI Intelligence
@@ -25,56 +27,109 @@
                         Partner for Africa
                     </h1>
 
-                    <p class="text-xl text-gray-300 dark:text-gray-300 leading-relaxed">
+                    <p class="text-base lg:text-lg text-gray-300 dark:text-gray-300 leading-relaxed max-w-xl">
                         We build the systems that power African economies. AVEC Technologies designs and deploys secure
                         digital infrastructure and AI-powered systems.
                     </p>
 
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex flex-wrap gap-4 pt-1">
                         <a href="{{ route('contact') }}"
-                            class="px-8 py-4 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
-                            Engage AVEC
+                            class="px-8 py-3.5 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
+                            Contact AVEC
                         </a>
-                        <a href="{{ route('services') }}" class="px-8 py-4 glass glass-hover rounded-full font-semibold">
+                        <a href="{{ route('services') }}" class="px-8 py-3.5 glass glass-hover rounded-full font-semibold">
                             Our Services
                         </a>
                     </div>
 
                     <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-6 pt-8">
+                    <div class="grid grid-cols-3 gap-4 pt-3">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-avec-cyan">100%</div>
-                            <div class="text-sm text-gray-400">Bespoke</div>
+                            <div class="text-2xl lg:text-3xl font-bold text-avec-cyan">100%</div>
+                            <div class="text-xs lg:text-sm text-gray-400">Bespoke</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-avec-purple">AI</div>
-                            <div class="text-sm text-gray-400">Enabled</div>
+                            <div class="text-2xl lg:text-3xl font-bold text-avec-purple">AI</div>
+                            <div class="text-xs lg:text-sm text-gray-400">Enabled</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-avec-cyan">Africa</div>
-                            <div class="text-sm text-gray-400">First</div>
+                            <div class="text-2xl lg:text-3xl font-bold text-avec-cyan">Africa</div>
+                            <div class="text-xs lg:text-sm text-gray-400">First</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Visual Element -->
-                <div class="relative fade-in-up" style="animation-delay: 0.3s;">
-                    <div class="glass glass-hover rounded-3xl p-8 transform hover:scale-105 transition-all duration-500">
-                        <div class="aspect-square relative">
-                            <svg viewBox="0 0 200 200" class="w-full h-full animate-spin-slow">
+                <!-- Africa Image with Improved Animated Network -->
+                <div class="relative fade-in-up flex items-center justify-center lg:justify-end"
+                    style="animation-delay: 0.3s;">
+                    <div
+                        class="glass glass-hover rounded-3xl p-6 md:p-8 w-full max-w-[450px] lg:max-w-[500px] transform hover:scale-105 transition-all duration-500 overflow-hidden relative">
+                        <div class="relative w-full h-[320px] md:h-[380px] lg:h-[420px] flex items-center justify-center">
+                            <!-- Africa Image -->
+                            <img src="{{ asset('images/africa.png') }}"
+                                alt="Africa continent - Expanding AVEC Technologies across the continent"
+                                class="w-[85%] h-auto max-h-[95%] object-contain opacity-90 drop-shadow-[0_0_30px_rgba(0,217,255,0.25)] relative z-10"
+                                loading="lazy" id="africa-map-image">
+
+                            <!-- SVG Overlay - improved -->
+                            <svg class="absolute inset-0 w-full h-full z-20 pointer-events-none" viewBox="0 0 500 600"
+                                preserveAspectRatio="xMidYMid meet" aria-hidden="true">
                                 <defs>
-                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%"
+                                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%"
                                         y2="100%">
-                                        <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:1" />
-                                        <stop offset="100%" style="stop-color:#9B8FF5;stop-opacity:1" />
+                                        <stop offset="0%" stop-color="#00D9FF" stop-opacity="0.9" />
+                                        <stop offset="100%" stop-color="#9B8FF5" stop-opacity="0.9" />
                                     </linearGradient>
+                                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                        <feGaussianBlur stdDeviation="2" result="blur" />
+                                        <feMerge>
+                                            <feMergeNode in="blur" />
+                                            <feMergeNode in="SourceGraphic" />
+                                        </feMerge>
+                                    </filter>
                                 </defs>
-                                <polygon points="100,10 40,198 190,78 10,78 160,198" fill="none" stroke="url(#grad1)"
-                                    stroke-width="2" opacity="0.5" />
-                                <polygon points="100,30 60,170 170,90 30,90 140,170" fill="none" stroke="url(#grad1)"
-                                    stroke-width="2" opacity="0.7" />
-                                <circle cx="100" cy="100" r="50" fill="none" stroke="url(#grad1)"
-                                    stroke-width="2" opacity="0.9" />
+
+                                <!-- Lines group -->
+                                <g id="connection-lines" opacity="0">
+                                    <line class="network-line" x1="275" y1="135" x2="305" y2="295"
+                                        stroke="url(#lineGradient)" stroke-width="1.8" filter="url(#glow)" opacity="0" />
+                                    <line class="network-line" x1="305" y1="295" x2="250" y2="350"
+                                        stroke="url(#lineGradient)" stroke-width="1.8" filter="url(#glow)" opacity="0" />
+                                    <line class="network-line" x1="250" y1="350" x2="240" y2="470"
+                                        stroke="url(#lineGradient)" stroke-width="1.8" filter="url(#glow)" opacity="0" />
+                                    <line class="network-line" x1="175" y1="255" x2="158" y2="275"
+                                        stroke="url(#lineGradient)" stroke-width="1.8" filter="url(#glow)" opacity="0" />
+                                    <line class="network-line" x1="158" y1="275" x2="240" y2="470"
+                                        stroke="url(#lineGradient)" stroke-width="1.8" filter="url(#glow)"
+                                        opacity="0" />
+                                    <line class="network-line" x1="175" y1="255" x2="275"
+                                        y2="135" stroke="url(#lineGradient)" stroke-width="1.8"
+                                        filter="url(#glow)" opacity="0" />
+                                    <line class="network-line" x1="305" y1="295" x2="240"
+                                        y2="470" stroke="url(#lineGradient)" stroke-width="1.8"
+                                        filter="url(#glow)" opacity="0" />
+                                    <line class="network-line" x1="190" y1="110" x2="175"
+                                        y2="255" stroke="url(#lineGradient)" stroke-width="1.8"
+                                        filter="url(#glow)" opacity="0" />
+                                </g>
+
+                                <!-- Nodes group -->
+                                <g id="country-nodes" opacity="0">
+                                    <circle class="network-node" cx="250" cy="350" r="5" fill="#00D9FF"
+                                        filter="url(#glow)" opacity="0" /> <!-- Zambia -->
+                                    <circle class="network-node" cx="240" cy="470" r="5" fill="#9B8FF5"
+                                        filter="url(#glow)" opacity="0" /> <!-- SA -->
+                                    <circle class="network-node" cx="305" cy="295" r="5" fill="#00D9FF"
+                                        filter="url(#glow)" opacity="0" /> <!-- Kenya -->
+                                    <circle class="network-node" cx="175" cy="255" r="5" fill="#9B8FF5"
+                                        filter="url(#glow)" opacity="0" /> <!-- Nigeria -->
+                                    <circle class="network-node" cx="275" cy="135" r="5" fill="#00D9FF"
+                                        filter="url(#glow)" opacity="0" /> <!-- Egypt -->
+                                    <circle class="network-node" cx="158" cy="275" r="5" fill="#9B8FF5"
+                                        filter="url(#glow)" opacity="0" /> <!-- Ghana -->
+                                    <circle class="network-node" cx="190" cy="110" r="5" fill="#00D9FF"
+                                        filter="url(#glow)" opacity="0" /> <!-- Morocco -->
+                                </g>
                             </svg>
                         </div>
                     </div>
@@ -82,6 +137,98 @@
             </div>
         </div>
     </section>
+
+    <!-- Improved Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const linesGroup = document.getElementById('connection-lines');
+            const nodesGroup = document.getElementById('country-nodes');
+            const lines = document.querySelectorAll('.network-line');
+            const nodes = document.querySelectorAll('.network-node');
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                linesGroup.style.opacity = '0.7';
+                nodesGroup.style.opacity = '0.7';
+                return;
+            }
+
+            // Start sequence after short delay
+            setTimeout(() => {
+                linesGroup.style.opacity = '1';
+
+                lines.forEach((line, i) => {
+                    const length = line.getTotalLength ? line.getTotalLength() : 300;
+                    line.style.strokeDasharray = length;
+                    line.style.strokeDashoffset = length;
+                    line.style.opacity = '1';
+                    line.style.transition =
+                        `stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1) ${i * 180 + 600}ms`;
+
+                    // Trigger draw
+                    setTimeout(() => {
+                        line.style.strokeDashoffset = '0';
+                    }, 100);
+
+                    // After draw, add flowing dash effect
+                    setTimeout(() => {
+                        line.style.strokeDasharray = '8 4';
+                        line.style.animation = 'flowDash 4s linear infinite';
+                    }, 2000 + i * 180);
+                });
+
+                // Nodes appear after most lines
+                setTimeout(() => {
+                    nodesGroup.style.opacity = '1';
+                    nodes.forEach((node, i) => {
+                        node.style.transition = `opacity 0.8s ease ${i * 150 + 1800}ms`;
+                        node.style.opacity = '1';
+                        setTimeout(() => {
+                            node.style.animation =
+                                'pulseNode 3s ease-in-out infinite';
+                        }, 2200 + i * 150);
+                    });
+                }, 1200);
+            }, 800);
+        });
+    </script>
+
+    <!-- Add to your CSS (app.css or <style>) -->
+    <style>
+        @keyframes flowDash {
+            to {
+                stroke-dashoffset: -24;
+            }
+        }
+
+        @keyframes pulseNode {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+            }
+        }
+
+        .network-line,
+        .network-node {
+            transition: all 0.6s ease;
+        }
+
+        @media (max-width: 768px) {
+            .network-line {
+                stroke-width: 1.4 !important;
+            }
+
+            .network-node {
+                r: 4 !important;
+            }
+        }
+    </style>
 
     <!-- Why We Exist Section -->
     <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
