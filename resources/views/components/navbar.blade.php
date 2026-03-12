@@ -67,7 +67,7 @@
                     class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">Blog</a>
                 <a href="{{ route('contact') }}"
                     class="block px-6 py-2 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full text-sm font-semibold text-center mobile-link">
-                    Engage AVEC
+                    Contact AVEC
                 </a>
             </div>
         </div>

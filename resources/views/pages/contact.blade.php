@@ -161,7 +161,7 @@
                                 <div>
                                     <h3 class="font-semibold text-lg mb-1">WhatsApp</h3>
                                     <p class="text-gray-400 text-sm">Quick response, instant communication</p>
-                                    <a href="https://wa.me/260" target="_blank"
+                                    <a href="https://wa.me/260763959660" target="_blank"
                                         class="text-green-500 hover:text-green-400 transition-colors text-sm">
                                         Chat with us →
                                     </a>
