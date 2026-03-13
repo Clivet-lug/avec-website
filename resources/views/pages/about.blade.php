@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'About Us - AVEC Technologies')
-@section('meta_description', 'Learn about AVEC Technologies, a Zambian technology company building digital
-    infrastructure for Africa.')
+@section('meta_description', 'Learn about AVEC Technologies, a digital infrastructure and AI company building the
+    systems that power modern African institutions.')
 
 @section('content')
     <!-- Hero Section -->
@@ -19,14 +19,144 @@
                     </span>
                 </h1>
                 <p class="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    We are infrastructure builders and long-term architects, creating the systems that will power African
-                    economies for generations.
+                    AVEC Technologies is a digital infrastructure and artificial intelligence company building the systems
+                    that power modern African institutions.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision -->
+    <!-- About AVEC Technologies (WITH IMAGE) -->
+    <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Image (NO CARD) -->
+                <div class="fade-in-section lg:order-first" style="animation-delay: 0.2s;">
+                    <img src="{{ asset('images/hero-background.jpg') }}" alt="AVEC Technologies digital infrastructure"
+                        class="w-full h-[400px] lg:h-[450px] object-cover rounded-3xl">
+                </div>
+
+                <!-- Text Content -->
+                <div class="prose prose-lg max-w-none fade-in-section">
+                    <p class="text-xl text-gray-300 leading-relaxed mb-6">
+                        We design and develop intelligent digital platforms that help governments, universities, financial
+                        institutions, and enterprises modernize operations, manage data securely, and scale efficiently in a
+                        rapidly digitizing world.
+                    </p>
+
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Across Africa, many organizations still operate on fragmented systems, manual processes, and
+                        underutilized data. AVEC Technologies exists to bridge that gap by delivering reliable, scalable,
+                        and future-ready technology infrastructure that enables institutions to operate with greater speed,
+                        transparency, and intelligence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="relative py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-avec-dark">
+                    What We Do
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    We build digital systems that support critical institutional operations
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all">
+                    <div class="w-14 h-14 bg-avec-cyan/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-avec-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Enterprise & Institutional Software Systems</h3>
+                    <p class="text-gray-400">Custom platforms designed for complex institutional operations</p>
+                </div>
+
+                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
+                    style="animation-delay: 0.1s;">
+                    <div class="w-14 h-14 bg-avec-purple/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-avec-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Digital Records & Document Management</h3>
+                    <p class="text-gray-400">Secure digitization and intelligent management of institutional records</p>
+                </div>
+
+                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
+                    style="animation-delay: 0.2s;">
+                    <div class="w-14 h-14 bg-avec-cyan/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-avec-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">RFID Asset Tracking Systems</h3>
+                    <p class="text-gray-400">Real-time tracking and management of institutional assets</p>
+                </div>
+
+                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
+                    style="animation-delay: 0.3s;">
+                    <div class="w-14 h-14 bg-avec-purple/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-avec-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Financial & Payment Infrastructure</h3>
+                    <p class="text-gray-400">Payment rails, savings platforms, and fintech integrations</p>
+                </div>
+
+                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
+                    style="animation-delay: 0.4s;">
+                    <div class="w-14 h-14 bg-avec-cyan/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-avec-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Data & AI-Powered Intelligence</h3>
+                    <p class="text-gray-400">Decision intelligence systems that unlock the full value of institutional data
+                    </p>
+                </div>
+
+                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
+                    style="animation-delay: 0.5s;">
+                    <div class="w-14 h-14 bg-avec-purple/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-avec-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Workflow Automation & ERP Systems</h3>
+                    <p class="text-gray-400">Streamline operations and improve organizational efficiency</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 fade-in-section">
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    Our solutions are designed to help organizations streamline operations, improve accountability, and
+                    unlock the full value of their data.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
     <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12">
@@ -67,260 +197,85 @@
         </div>
     </section>
 
-    <!-- Who We Are -->
+    <!-- Our Approach (WITH IMAGE) -->
     <section class="relative py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 fade-in-section">
-                    <span class="text-avec-cyan font-semibold text-sm uppercase tracking-wider">Who We Are</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold dark:text-white text-avec-dark">
-                        Building the backbone of African systems
+                <!-- Text Content -->
+                <div class="fade-in-section">
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-avec-dark">
+                        Our Approach
                     </h2>
-                    <div class="space-y-4 text-lg text-gray-300 dark:text-gray-300 leading-relaxed">
-                        <p>
-                            AVEC Technologies is a Zambian technology company specializing in bespoke systems development,
-                            financial infrastructure, and data-driven digital solutions.
+
+                    <div class="prose prose-lg max-w-none">
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            At AVEC Technologies, we combine technical expertise with a deep understanding of institutional
+                            operations. Our approach focuses on building systems that are secure, scalable, and tailored to
+                            the realities of African markets.
                         </p>
-                        <p>
-                            We support governments, financial institutions, development partners, and enterprises to
-                            digitize operations, build custom systems, and use data intelligently to improve outcomes.
-                        </p>
-                        <p class="text-avec-cyan font-semibold italic text-xl pt-4">
-                            "We are not building software. We are building the backbone of African systems."
+
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            We believe that strong digital infrastructure is essential for economic growth, innovation, and
+                            efficient public service delivery across the continent.
                         </p>
                     </div>
                 </div>
 
-                <div class="space-y-6 fade-in-section" style="animation-delay: 0.2s;">
-                    <div class="glass rounded-2xl p-8">
-                        <h3 class="text-2xl font-display font-bold mb-4 text-avec-cyan">Who We Are NOT</h3>
-                        <ul class="space-y-3 text-gray-300 dark:text-gray-300">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-red-400 mr-3 flex-shrink-0 mt-1" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                                <span>Not a freelance development shop</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-red-400 mr-3 flex-shrink-0 mt-1" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                                <span>Not "just software developers"</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="glass rounded-2xl p-8 bg-gradient-to-br from-avec-cyan/10 to-avec-purple/10">
-                        <h3 class="text-2xl font-display font-bold mb-4 text-avec-purple">Who We ARE</h3>
-                        <p class="text-xl font-semibold text-gray-200">
-                            We are infrastructure builders and long-term architects
-                        </p>
-                    </div>
+                <!-- Image (NO CARD) -->
+                <div class="fade-in-section" style="animation-delay: 0.2s;">
+                    <img src="{{ asset('images/team-office.jpg') }}" alt="AVEC Technologies team collaboration"
+                        class="w-full h-[400px] lg:h-[450px] object-cover rounded-3xl">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Values -->
+    <!-- Leadership -->
     <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-in-section">
-                <span class="text-avec-purple font-semibold text-sm uppercase tracking-wider">Our Values</span>
-                <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6 dark:text-white text-avec-dark">
-                    How We Operate
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-avec-dark">
+                    Leadership
                 </h2>
-                <p class="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto">
-                    The principles that guide every decision we make
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    AVEC Technologies is led by a team committed to building reliable digital infrastructure for African
+                    institutions.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all">
-                    <div class="w-14 h-14 bg-avec-cyan/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-7 h-7 text-avec-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
-                            </path>
-                        </svg>
+            <div class="max-w-5xl mx-auto">
+                <div class="glass rounded-3xl overflow-hidden fade-in-section">
+                    <div class="grid md:grid-cols-5 gap-0">
+                        <!-- Violet's Photo -->
+                        <div class="md:col-span-2 bg-gradient-to-br from-avec-cyan/10 to-avec-purple/10">
+                            <img src="{{ asset('images/violet-kaponda1.jpg') }}"
+                                alt="Violet Nswana Kaponda - Founder & CEO, AVEC Technologies"
+                                class="w-full h-full object-cover min-h-[400px] md:min-h-full">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="md:col-span-3 p-8 md:p-12">
+                            <h3 class="text-3xl md:text-4xl font-display font-bold mb-2">Violet Nswana Kaponda</h3>
+                            <p class="text-xl md:text-2xl text-avec-cyan mb-6">Founder & CEO</p>
+
+                            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+                                Violet Nswana Kaponda is a technology strategist with experience in fintech systems, digital
+                                transformation, and enterprise platforms across the African technology ecosystem.
+                            </p>
+
+                            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+                                Under her leadership, AVEC Technologies focuses on designing scalable digital systems that
+                                help governments, universities, financial institutions, and enterprises modernize
+                                operations, strengthen data management, and unlock new opportunities through technology.
+                            </p>
+
+                            <p
+                                class="text-base md:text-lg text-gray-300 leading-relaxed font-medium italic border-l-4 border-avec-cyan pl-4">
+                                AVEC is driven by the belief that Africa's next era of growth will be powered by strong
+                                digital infrastructure built on the continent, for the continent.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Excellence over mediocrity</h3>
-                    <p class="text-gray-400 text-sm">We hold ourselves to the highest standards in everything we build</p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
-                    style="animation-delay: 0.1s;">
-                    <div class="w-14 h-14 bg-avec-purple/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-7 h-7 text-avec-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Security-first thinking</h3>
-                    <p class="text-gray-400 text-sm">Security is embedded in every decision and every line of code</p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
-                    style="animation-delay: 0.2s;">
-                    <div class="w-14 h-14 bg-avec-cyan/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-7 h-7 text-avec-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Long-term architecture mindset</h3>
-                    <p class="text-gray-400 text-sm">We build for the future, not just for today</p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
-                    style="animation-delay: 0.3s;">
-                    <div class="w-14 h-14 bg-avec-purple/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-7 h-7 text-avec-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Documentation culture</h3>
-                    <p class="text-gray-400 text-sm">Every system is thoroughly documented for sustainability</p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
-                    style="animation-delay: 0.4s;">
-                    <div class="w-14 h-14 bg-avec-cyan/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-7 h-7 text-avec-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Ownership, not excuses</h3>
-                    <p class="text-gray-400 text-sm">We take full responsibility for outcomes and solutions</p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section hover:scale-105 transition-all"
-                    style="animation-delay: 0.5s;">
-                    <div class="w-14 h-14 bg-avec-purple/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-7 h-7 text-avec-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Speed + Precision</h3>
-                    <p class="text-gray-400 text-sm">Fast execution without compromising on quality</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Bigger Strategy -->
-    <section class="relative py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in-section">
-                <span class="text-avec-purple font-semibold text-sm uppercase tracking-wider">Strategic Focus</span>
-                <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6 dark:text-white text-avec-dark">
-                    The Bigger Strategy
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass rounded-2xl p-8 fade-in-section">
-                    <div class="text-4xl font-bold text-avec-cyan mb-4">01</div>
-                    <h3 class="text-xl font-display font-bold mb-3">Build and control core digital infrastructure</h3>
-                    <p class="text-gray-300 dark:text-gray-300">
-                        Establish foundational systems that institutions depend on.
-                    </p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section" style="animation-delay: 0.1s;">
-                    <div class="text-4xl font-bold text-avec-purple mb-4">02</div>
-                    <h3 class="text-xl font-display font-bold mb-3">Influence policy decisions</h3>
-                    <p class="text-gray-300 dark:text-gray-300">
-                        Shape the digital transformation landscape across Africa.
-                    </p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section" style="animation-delay: 0.2s;">
-                    <div class="text-4xl font-bold text-avec-cyan mb-4">03</div>
-                    <h3 class="text-xl font-display font-bold mb-3">Deliver critical institutional systems</h3>
-                    <p class="text-gray-300 dark:text-gray-300">
-                        Build mission-critical infrastructure for governments and enterprises.
-                    </p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section" style="animation-delay: 0.3s;">
-                    <div class="text-4xl font-bold text-avec-purple mb-4">04</div>
-                    <h3 class="text-xl font-display font-bold mb-3">Expand cross-border</h3>
-                    <p class="text-gray-300 dark:text-gray-300">
-                        Scale solutions across African markets and beyond.
-                    </p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 fade-in-section" style="animation-delay: 0.4s;">
-                    <div class="text-4xl font-bold text-avec-cyan mb-4">05</div>
-                    <h3 class="text-xl font-display font-bold mb-3">Become indispensable to institutions</h3>
-                    <p class="text-gray-300 dark:text-gray-300">
-                        Build deep, long-term partnerships that drive transformation.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2026 Strategic Focus -->
-    <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in-section">
-                <span class="text-avec-cyan font-semibold text-sm uppercase tracking-wider">This Year</span>
-                <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6 dark:text-white text-avec-dark">
-                    2026 Strategic Focus
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="text-center fade-in-section">
-                    <div
-                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center text-3xl font-bold">
-                        01
-                    </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Win 3 anchor institutional clients</h3>
-                </div>
-
-                <div class="text-center fade-in-section" style="animation-delay: 0.1s;">
-                    <div
-                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-avec-purple to-avec-cyan rounded-2xl flex items-center justify-center text-3xl font-bold">
-                        02
-                    </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Deliver flawless execution for flagship projects</h3>
-                </div>
-
-                <div class="text-center fade-in-section" style="animation-delay: 0.2s;">
-                    <div
-                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center text-3xl font-bold">
-                        03
-                    </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Build strong, elite developer team</h3>
-                </div>
-
-                <div class="text-center fade-in-section" style="animation-delay: 0.3s;">
-                    <div
-                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-avec-purple to-avec-cyan rounded-2xl flex items-center justify-center text-3xl font-bold">
-                        04
-                    </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Strengthen security and hosting</h3>
-                </div>
-
-                <div class="text-center fade-in-section" style="animation-delay: 0.4s;">
-                    <div
-                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center text-3xl font-bold">
-                        05
-                    </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Establish strategic partnerships</h3>
                 </div>
             </div>
         </div>
@@ -330,10 +285,10 @@
     <section class="relative py-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 dark:text-white text-avec-dark">
-                Ready to Build the Future?
+                Ready to Transform Your Institution?
             </h2>
             <p class="text-xl text-gray-300 dark:text-gray-300 mb-8">
-                Partner with us to transform your digital infrastructure and unlock new possibilities.
+                Partner with us to build the digital infrastructure your organization needs to thrive.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="{{ route('contact') }}"
@@ -341,7 +296,7 @@
                     Get In Touch
                 </a>
                 <a href="{{ route('services') }}" class="px-10 py-5 glass glass-hover rounded-full font-semibold text-lg">
-                    Our Services
+                    View Solutions
                 </a>
             </div>
         </div>
