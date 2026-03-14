@@ -140,9 +140,9 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-1">Email</h3>
-                                    <a href="mailto:clivetlungu1@gmail.com"
+                                    <a href="mailto:info@avectechnologies.com"
                                         class="text-avec-cyan hover:text-avec-purple transition-colors">
-                                        clivetlungu1@gmail.com
+                                        info@avectechnologies.com
                                     </a>
                                 </div>
                             </div>
