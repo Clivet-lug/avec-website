@@ -1,72 +1,67 @@
 @extends('layouts.admin')
-
 @section('title', 'Edit Category')
+@section('page_title', 'Edit Category')
+@section('page_subtitle', 'Update category details')
 
 @section('content')
-    <div class="space-y-6">
-        <!-- Header -->
-        <div class="flex justify-between items-center">
-            <div>
-                <h1 class="text-3xl font-display font-bold text-gray-900 dark:text-white">Edit Category</h1>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Update category details</p>
-            </div>
-            <a href="{{ route('admin.categories.index') }}"
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-                ← Back to Categories
-            </a>
-        </div>
+    <div class="max-w-xl">
 
-        <!-- Form -->
-        <div class="max-w-2xl">
-            <form action="{{ route('admin.categories.update', $category) }}" method="POST"
-                class="bg-white dark:bg-avec-navy rounded-lg shadow p-8 space-y-6">
-                @csrf
-                @method('PUT')
+        {{-- Back link --}}
+        <a href="{{ route('admin.categories.index') }}"
+            style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#94a3b8;text-decoration:none;margin-bottom:20px;">
+            <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Categories
+        </a>
 
-                <!-- Name -->
+        <form action="{{ route('admin.categories.update', $category) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="ac p-6 space-y-5">
+
+                {{-- Name --}}
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Name <span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="name" value="{{ old('name', $category->name) }}" required
-                        class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white">
+                    <label class="al">Name <span style="color:#f87171;">*</span></label>
+                    <input type="text" name="name" value="{{ old('name', $category->name) }}" required class="ai">
                     @error('name')
-                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <!-- Description -->
+                {{-- Description --}}
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Description
-                    </label>
-                    <textarea name="description" rows="3"
-                        class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white">{{ old('description', $category->description) }}</textarea>
+                    <label class="al">Description</label>
+                    <textarea name="description" rows="3" class="ai" placeholder="Brief description of this category"
+                        style="resize:vertical;">{{ old('description', $category->description) }}</textarea>
                     @error('description')
-                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <!-- Current Slug -->
-                <div class="bg-gray-50 dark:bg-avec-dark rounded-lg p-4">
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Current slug: <code
-                            class="text-avec-cyan">{{ $category->slug }}</code></p>
-                    <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">Slug will update automatically if you change
-                        the name</p>
+                {{-- Current slug info --}}
+                <div style="background:#f8f9fc;border:1px solid #eef0f5;border-radius:9px;padding:12px 14px;">
+                    <p style="font-size:12px;color:#94a3b8;margin-bottom:3px;">
+                        Current slug: <code style="color:#00bcd4;font-family:monospace;">{{ $category->slug }}</code>
+                    </p>
+                    <p style="font-size:11px;color:#b0bac9;">Slug updates automatically when you change the name</p>
                 </div>
 
-                <!-- Submit -->
-                <div class="flex justify-end space-x-3">
+                {{-- Actions --}}
+                <div class="flex items-center justify-end gap-3 pt-1">
                     <a href="{{ route('admin.categories.index') }}"
-                        class="px-6 py-3 border border-gray-300 dark:border-white/10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-avec-dark transition-colors">
+                        style="font-size:13px;font-weight:500;color:#94a3b8;text-decoration:none;padding:8px 16px;border-radius:8px;border:1px solid #dde1ea;background:#fff;">
                         Cancel
                     </a>
                     <button type="submit"
-                        class="px-6 py-3 bg-avec-cyan text-white rounded-lg hover:bg-avec-cyan/90 transition-colors font-semibold">
+                        class="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg font-semibold text-sm hover:opacity-90 transition-all"
+                        style="background:linear-gradient(135deg,#00D9FF,#9B8FF5);color:#0A0E27;">
                         Update Category
                     </button>
                 </div>
-            </form>
-        </div>
+
+            </div>
+        </form>
+
     </div>
 @endsection

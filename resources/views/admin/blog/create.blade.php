@@ -1,21 +1,18 @@
 @extends('layouts.admin')
 @section('title', 'Create Blog Post')
-@section('page_title', 'Create New Post')
+@section('page_title', 'New Post')
 @section('page_subtitle', 'Write and publish a new blog post')
 
 @section('content')
     <div class="space-y-5">
 
-        <div class="flex items-center justify-between">
-            <h1 style="font-size:24px;font-weight:700;color:#0A0E27;">Create New Post</h1>
-            <a href="{{ route('admin.blog.index') }}"
-                style="font-size:13px;font-weight:500;color:#9ca3af;text-decoration:none;display:inline-flex;align-items:center;gap:5px;">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to Posts
-            </a>
-        </div>
+        <a href="{{ route('admin.blog.index') }}"
+            style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#94a3b8;text-decoration:none;">
+            <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Posts
+        </a>
 
         <form action="{{ route('admin.blog.store') }}" method="POST" enctype="multipart/form-data" id="blog-form">
             @csrf
@@ -23,32 +20,32 @@
 
             <div class="grid lg:grid-cols-3 gap-5">
 
-                {{-- Main --}}
+                {{-- Main column --}}
                 <div class="lg:col-span-2 space-y-4">
 
                     <div class="ac p-6">
-                        <label class="al">Title <span style="color:#ef4444;">*</span></label>
+                        <label class="al">Title <span style="color:#f87171;">*</span></label>
                         <input type="text" name="title" value="{{ old('title') }}" required
                             placeholder="Enter post title" class="ai" style="font-size:15px;padding:11px 14px;">
                         @error('title')
-                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="ac p-6">
-                        <label class="al">Excerpt <span style="color:#ef4444;">*</span></label>
-                        <textarea name="excerpt" rows="3" required placeholder="Brief summary shown in post listings..." class="ai"
+                        <label class="al">Excerpt <span style="color:#f87171;">*</span></label>
+                        <textarea name="excerpt" rows="3" required placeholder="Brief summary shown in post listings…" class="ai"
                             style="resize:vertical;">{{ old('excerpt') }}</textarea>
                         @error('excerpt')
-                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="ac p-6">
-                        <label class="al">Content <span style="color:#ef4444;">*</span></label>
+                        <label class="al">Content <span style="color:#f87171;">*</span></label>
                         <div id="quill-editor"></div>
                         @error('content')
-                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -65,73 +62,79 @@
                                 style="resize:vertical;">{{ old('meta_description') }}</textarea>
                         </div>
                     </div>
+
                 </div>
 
                 {{-- Sidebar --}}
                 <div class="space-y-4">
 
+                    {{-- Publish --}}
                     <div class="ac p-6 space-y-4">
                         <div class="as">Publish</div>
                         <div>
-                            <label class="al">Status <span style="color:#ef4444;">*</span></label>
+                            <label class="al">Status <span style="color:#f87171;">*</span></label>
                             <select name="status" required class="ai">
                                 <option value="draft" {{ old('status') === 'draft' ? 'selected' : '' }}>Draft</option>
                                 <option value="published" {{ old('status') === 'published' ? 'selected' : '' }}>Published
                                 </option>
                             </select>
                         </div>
-                        <div style="padding-top:14px;border-top:1px solid #f0f2f8;">
+                        <div style="padding-top:14px;border-top:1px solid #eef0f5;">
                             <button type="submit"
-                                class="w-full py-2.5 rounded-xl text-white text-sm font-semibold hover:opacity-90 transition-all"
-                                style="background:#0A0E27;">
+                                class="w-full py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition-all"
+                                style="background:linear-gradient(135deg,#00D9FF,#9B8FF5);color:#0A0E27;">
                                 Create Post
                             </button>
                         </div>
                     </div>
 
+                    {{-- Category --}}
                     <div class="ac p-6">
                         <div class="as">Category</div>
-                        <label class="al">Select Category <span style="color:#ef4444;">*</span></label>
+                        <label class="al">Select Category <span style="color:#f87171;">*</span></label>
                         <select name="category_id" required class="ai">
                             <option value="">Choose a category</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
-                                    {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}
+                                    {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
                                 </option>
                             @endforeach
                         </select>
                         @error('category_id')
-                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                         @enderror
                     </div>
 
+                    {{-- Featured Image --}}
                     <div class="ac p-6">
                         <div class="as">Featured Image</div>
                         <div id="img-preview" class="hidden mb-4">
                             <img id="img-preview-el" class="w-full rounded-xl object-cover"
-                                style="max-height:150px;border:1px solid #e8eaf0;">
+                                style="max-height:150px;border:1px solid #dde1ea;">
                         </div>
                         <label for="featured_image" class="block cursor-pointer">
                             <div class="flex flex-col items-center justify-center py-6 rounded-xl transition-all"
-                                style="border:2px dashed #e5e7eb;"
+                                style="border:2px dashed #dde1ea;"
                                 onmouseover="this.style.borderColor='#00D9FF';this.style.background='#f0feff';"
-                                onmouseout="this.style.borderColor='#e5e7eb';this.style.background='transparent';">
-                                <svg class="w-7 h-7 mb-2" style="color:#d1d5db;" fill="none" stroke="currentColor"
+                                onmouseout="this.style.borderColor='#dde1ea';this.style.background='transparent';">
+                                <svg class="w-7 h-7 mb-2" style="color:#b0bac9;" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                         d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                                 <span style="font-size:12px;font-weight:600;color:#00bcd4;">Choose image</span>
-                                <span style="font-size:11px;color:#d1d5db;margin-top:2px;">PNG, JPG up to 2MB</span>
+                                <span style="font-size:11px;color:#b0bac9;margin-top:2px;">PNG, JPG up to 2MB</span>
                             </div>
                         </label>
                         <input type="file" name="featured_image" id="featured_image" accept="image/*" class="hidden"
                             onchange="previewImage(this)">
-                        <p style="font-size:11px;color:#d1d5db;margin-top:8px;">Recommended: 1200×630px</p>
+                        <p style="font-size:11px;color:#b0bac9;margin-top:8px;">Recommended: 1200×630px</p>
                         @error('featured_image')
-                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                         @enderror
                     </div>
+
                 </div>
             </div>
         </form>

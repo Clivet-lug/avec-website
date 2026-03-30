@@ -8,19 +8,23 @@
     <title>@yield('title', 'Admin') — AVEC Technologies</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
-        /* ── AVEC Admin — Clean White Theme ── */
+        /* ── AVEC Admin — Dark Sidebar / Muted Theme ── */
         * {
             box-sizing: border-box;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f7f8fc;
+            background: #eef0f5;
             color: #1f2937;
             margin: 0;
         }
 
-        /* Sidebar links */
+        /* ── Sidebar ── */
+        #sb {
+            background: #13162b;
+        }
+
         .sb-link {
             display: flex;
             align-items: center;
@@ -29,7 +33,7 @@
             border-radius: 8px;
             font-size: 13px;
             font-weight: 500;
-            color: #6b7280;
+            color: #8892b0;
             text-decoration: none;
             transition: all 0.15s;
             margin-bottom: 1px;
@@ -47,17 +51,17 @@
         }
 
         .sb-link:hover {
-            background: #f7f8fc;
-            color: #0A0E27;
+            background: rgba(255, 255, 255, 0.06);
+            color: #ccd6f6;
         }
 
         .sb-link:hover svg {
-            color: #00bcd4;
+            color: #00D9FF;
         }
 
         .sb-link.active {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(155, 143, 245, 0.06));
-            color: #0097a7;
+            background: rgba(0, 217, 255, 0.1);
+            color: #00D9FF;
             font-weight: 600;
         }
 
@@ -66,8 +70,8 @@
         }
 
         .sb-link.danger:hover {
-            color: #ef4444;
-            background: #fef2f2;
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.08);
         }
 
         .sb-section {
@@ -75,17 +79,17 @@
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #d1d5db;
+            color: #3d4a6b;
             padding: 0 10px;
             margin: 14px 0 4px;
         }
 
-        /* Form elements */
+        /* ── Form elements ── */
         .ai {
             width: 100%;
             padding: 9px 12px;
             background: #fff;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #dde1ea;
             border-radius: 9px;
             font-size: 13px;
             color: #1f2937;
@@ -95,7 +99,7 @@
         }
 
         .ai::placeholder {
-            color: #d1d5db;
+            color: #c4c9d6;
         }
 
         .ai:focus {
@@ -125,24 +129,26 @@
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #d1d5db;
+            color: #c4c9d6;
             margin-bottom: 14px;
         }
 
-        /* Cards */
+        /* ── Cards ── */
         .ac {
             background: #fff;
-            border: 1px solid #e8eaf0;
+            border: 1px solid #dde1ea;
             border-radius: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .ac-sm {
             background: #fff;
-            border: 1px solid #e8eaf0;
+            border: 1px solid #dde1ea;
             border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
-        /* Action buttons */
+        /* ── Action buttons ── */
         .action-btn {
             flex: 1;
             display: flex;
@@ -167,7 +173,7 @@
 
         .action-btn:hover {
             color: #00bcd4;
-            background: #e0faff;
+            background: #e8fbff;
         }
 
         .action-btn.del:hover {
@@ -175,17 +181,17 @@
             background: #fef2f2;
         }
 
-        /* Quill */
+        /* ── Quill ── */
         .ql-toolbar {
-            background: #f9fafb !important;
-            border: 1px solid #e5e7eb !important;
+            background: #f6f7fb !important;
+            border: 1px solid #dde1ea !important;
             border-bottom: none !important;
             border-radius: 9px 9px 0 0;
         }
 
         .ql-container {
             background: #fff !important;
-            border: 1px solid #e5e7eb !important;
+            border: 1px solid #dde1ea !important;
             border-radius: 0 0 9px 9px;
             min-height: 380px;
             font-family: inherit !important;
@@ -199,7 +205,7 @@
         }
 
         .ql-editor.ql-blank::before {
-            color: #d1d5db !important;
+            color: #c4c9d6 !important;
             font-style: normal;
         }
 
@@ -210,6 +216,34 @@
         .ql-container.ql-snow:focus-within {
             border-color: #00D9FF !important;
             box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.08);
+        }
+
+        /* ── Top bar ── */
+        header.topbar {
+            background: #f4f5f9;
+            border-bottom: 1px solid #dde1ea;
+        }
+
+        /* ── Sidebar border ── */
+        #sb {
+            border-right: 1px solid #0d1024;
+        }
+
+        /* ── Logo area ── */
+        .sb-logo-area {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* ── User chip ── */
+        .sb-user-chip {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+        }
+
+        /* ── Bottom sidebar border ── */
+        .sb-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         @media (max-width: 1023px) {
@@ -234,21 +268,20 @@
 
 <body class="h-full">
 
-    <div id="sb-overlay" class="fixed inset-0 bg-black/30 z-30 lg:hidden" onclick="toggleSb()"></div>
+    <div id="sb-overlay" class="fixed inset-0 bg-black/40 z-30 lg:hidden" onclick="toggleSb()"></div>
 
     <!-- SIDEBAR -->
     <aside id="sb"
-        class="fixed top-0 left-0 h-full w-56 bg-white z-40 flex flex-col transition-transform duration-250 lg:translate-x-0"
-        style="border-right:1px solid #f0f2f8;">
+        class="fixed top-0 left-0 h-full w-56 z-40 flex flex-col transition-transform duration-250 lg:translate-x-0">
 
         <!-- Logo -->
-        <div class="flex items-center gap-3 px-5 flex-shrink-0" style="height:56px;border-bottom:1px solid #f0f2f8;">
+        <div class="sb-logo-area flex items-center gap-3 px-5 flex-shrink-0" style="height:56px;">
             <div class="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-black text-white flex-shrink-0"
                 style="background:linear-gradient(135deg,#00D9FF,#9B8FF5);">A</div>
             <div class="min-w-0">
-                <div style="font-size:13px;font-weight:700;color:#0A0E27;letter-spacing:0.02em;line-height:1;">AVEC
+                <div style="font-size:13px;font-weight:700;color:#e2e8f0;letter-spacing:0.02em;line-height:1;">AVEC
                 </div>
-                <div style="font-size:9px;color:#9ca3af;font-weight:500;margin-top:2px;">Admin Panel</div>
+                <div style="font-size:9px;color:#4a5578;font-weight:500;margin-top:2px;">Admin Panel</div>
             </div>
         </div>
 
@@ -294,7 +327,7 @@
         </nav>
 
         <!-- Bottom -->
-        <div class="flex-shrink-0 p-3 space-y-0.5" style="border-top:1px solid #f0f2f8;">
+        <div class="sb-bottom flex-shrink-0 p-3 space-y-0.5">
             <a href="{{ route('home') }}" target="_blank" class="sb-link">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -313,15 +346,15 @@
                 </button>
             </form>
             <!-- User chip -->
-            <div class="flex items-center gap-2.5 px-3 py-2 mt-1 rounded-xl" style="background:#f7f8fc;">
+            <div class="sb-user-chip flex items-center gap-2.5 px-3 py-2 mt-1">
                 <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
                     style="background:linear-gradient(135deg,#00D9FF,#9B8FF5);">
                     {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                 </div>
                 <div class="min-w-0">
-                    <div style="font-size:12px;font-weight:600;color:#0A0E27;" class="truncate">
+                    <div style="font-size:12px;font-weight:600;color:#ccd6f6;" class="truncate">
                         {{ auth()->user()->name }}</div>
-                    <div style="font-size:10px;color:#9ca3af;">Administrator</div>
+                    <div style="font-size:10px;color:#4a5578;">Administrator</div>
                 </div>
             </div>
         </div>
@@ -331,20 +364,19 @@
     <div class="lg:pl-56 min-h-full flex flex-col">
 
         <!-- Top bar -->
-        <header class="sticky top-0 z-20 flex items-center px-6 gap-4 bg-white"
-            style="height:56px;border-bottom:1px solid #f0f2f8;">
+        <header class="topbar sticky top-0 z-20 flex items-center px-6 gap-4" style="height:56px;">
             <button onclick="toggleSb()" class="lg:hidden -ml-1 text-gray-400">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
             <div class="flex-1 min-w-0">
-                <h1 style="font-size:14px;font-weight:700;color:#0A0E27;line-height:1;">@yield('page_title', 'Dashboard')</h1>
-                <p style="font-size:11px;color:#9ca3af;margin-top:2px;">@yield('page_subtitle', 'AVEC Technologies Admin')</p>
+                <h1 style="font-size:14px;font-weight:700;color:#1e2a45;line-height:1;">@yield('page_title', 'Dashboard')</h1>
+                <p style="font-size:11px;color:#94a3b8;margin-top:2px;">@yield('page_subtitle', 'AVEC Technologies Admin')</p>
             </div>
             <a href="{{ route('admin.blog.create') }}"
                 class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-white font-semibold text-xs hover:opacity-90 hover:scale-[1.02] transition-all"
-                style="background:#0A0E27;">
+                style="background:linear-gradient(135deg,#00D9FF,#9B8FF5);color:#0A0E27;">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
                 </svg>

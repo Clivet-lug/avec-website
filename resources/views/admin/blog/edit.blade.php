@@ -6,19 +6,13 @@
 @section('content')
     <div class="space-y-5">
 
-        <div class="flex items-center justify-between">
-            <div>
-                <h1 style="font-size:24px;font-weight:700;color:#0A0E27;">Edit Post</h1>
-                <p style="margin-top:3px;font-size:13px;color:#9ca3af;">{{ Str::limit($post->title, 50) }}</p>
-            </div>
-            <a href="{{ route('admin.blog.index') }}"
-                style="font-size:13px;font-weight:500;color:#9ca3af;text-decoration:none;display:inline-flex;align-items:center;gap:5px;">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to Posts
-            </a>
-        </div>
+        <a href="{{ route('admin.blog.index') }}"
+            style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#94a3b8;text-decoration:none;">
+            <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Posts
+        </a>
 
         <form action="{{ route('admin.blog.update', $post) }}" method="POST" enctype="multipart/form-data" id="blog-form">
             @csrf @method('PUT')
@@ -26,31 +20,31 @@
 
             <div class="grid lg:grid-cols-3 gap-5">
 
-                {{-- Main --}}
+                {{-- Main column --}}
                 <div class="lg:col-span-2 space-y-4">
 
                     <div class="ac p-6">
-                        <label class="al">Title <span style="color:#ef4444;">*</span></label>
+                        <label class="al">Title <span style="color:#f87171;">*</span></label>
                         <input type="text" name="title" value="{{ old('title', $post->title) }}" required
                             class="ai" style="font-size:15px;padding:11px 14px;">
                         @error('title')
-                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="ac p-6">
-                        <label class="al">Excerpt <span style="color:#ef4444;">*</span></label>
+                        <label class="al">Excerpt <span style="color:#f87171;">*</span></label>
                         <textarea name="excerpt" rows="3" required class="ai" style="resize:vertical;">{{ old('excerpt', $post->excerpt) }}</textarea>
                         @error('excerpt')
-                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="ac p-6">
-                        <label class="al">Content <span style="color:#ef4444;">*</span></label>
+                        <label class="al">Content <span style="color:#f87171;">*</span></label>
                         <div id="quill-editor"></div>
                         @error('content')
-                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            <p style="margin-top:5px;font-size:11.5px;color:#f87171;">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -66,15 +60,17 @@
                             <textarea name="meta_description" rows="2" class="ai" style="resize:vertical;">{{ old('meta_description', $post->meta_description) }}</textarea>
                         </div>
                     </div>
+
                 </div>
 
                 {{-- Sidebar --}}
                 <div class="space-y-4">
 
+                    {{-- Publish --}}
                     <div class="ac p-6 space-y-4">
                         <div class="as">Publish</div>
                         <div>
-                            <label class="al">Status <span style="color:#ef4444;">*</span></label>
+                            <label class="al">Status <span style="color:#f87171;">*</span></label>
                             <select name="status" required class="ai">
                                 <option value="draft" {{ old('status', $post->status) === 'draft' ? 'selected' : '' }}>
                                     Draft</option>
@@ -83,26 +79,26 @@
                             </select>
                         </div>
                         <div
-                            style="padding-top:14px;border-top:1px solid #f0f2f8;display:flex;flex-direction:column;gap:8px;">
+                            style="padding-top:14px;border-top:1px solid #eef0f5;display:flex;flex-direction:column;gap:8px;">
                             <button type="submit"
-                                class="w-full py-2.5 rounded-xl text-white text-sm font-semibold hover:opacity-90 transition-all"
-                                style="background:#0A0E27;">
+                                class="w-full py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition-all"
+                                style="background:linear-gradient(135deg,#00D9FF,#9B8FF5);color:#0A0E27;">
                                 Update Post
                             </button>
                             <a href="{{ route('blog.show', $post->slug) }}" target="_blank"
                                 class="w-full py-2.5 rounded-xl text-sm font-semibold text-center transition-all"
-                                style="background:#f7f8fc;color:#6b7280;border:1px solid #e8eaf0;text-decoration:none;"
-                                onmouseover="this.style.background='#f0f2f8'" onmouseout="this.style.background='#f7f8fc'">
+                                style="background:#f8f9fc;color:#64748b;border:1px solid #dde1ea;text-decoration:none;"
+                                onmouseover="this.style.background='#eef0f5'" onmouseout="this.style.background='#f8f9fc'">
                                 Preview ↗
                             </a>
                         </div>
                         {{-- Delete --}}
-                        <div style="padding-top:12px;border-top:1px solid #fde8e8;">
+                        <div style="padding-top:12px;border-top:1px solid #eef0f5;">
                             <form action="{{ route('admin.blog.destroy', $post) }}" method="POST"
                                 onsubmit="return confirm('Permanently delete this post?');">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="w-full py-2 rounded-xl text-sm font-semibold transition-all"
-                                    style="border:1px solid #fecaca;color:#ef4444;background:transparent;"
+                                    style="border:1px solid #fecaca;color:#f87171;background:transparent;"
                                     onmouseover="this.style.background='#fef2f2'"
                                     onmouseout="this.style.background='transparent'">
                                     Delete Post
@@ -111,44 +107,49 @@
                         </div>
                     </div>
 
+                    {{-- Category --}}
                     <div class="ac p-6">
                         <div class="as">Category</div>
-                        <label class="al">Select Category <span style="color:#ef4444;">*</span></label>
+                        <label class="al">Select Category <span style="color:#f87171;">*</span></label>
                         <select name="category_id" required class="ai">
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
                                     {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}</option>
+                                    {{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
 
+                    {{-- Featured Image --}}
                     <div class="ac p-6">
                         <div class="as">Featured Image</div>
                         @if ($post->featured_image)
                             <div class="mb-4">
                                 <img src="{{ asset('storage/' . $post->featured_image) }}"
                                     class="w-full rounded-xl object-cover"
-                                    style="max-height:150px;border:1px solid #e8eaf0;">
+                                    style="max-height:150px;border:1px solid #dde1ea;">
                             </div>
                         @endif
                         <div id="img-preview" class="hidden mb-4">
                             <img id="img-preview-el" class="w-full rounded-xl object-cover"
-                                style="max-height:150px;border:1px solid #e8eaf0;">
+                                style="max-height:150px;border:1px solid #dde1ea;">
                         </div>
                         <label for="featured_image" class="block cursor-pointer">
                             <div class="flex flex-col items-center justify-center py-5 rounded-xl transition-all"
-                                style="border:2px dashed #e5e7eb;"
+                                style="border:2px dashed #dde1ea;"
                                 onmouseover="this.style.borderColor='#00D9FF';this.style.background='#f0feff';"
-                                onmouseout="this.style.borderColor='#e5e7eb';this.style.background='transparent';">
-                                <span
-                                    style="font-size:12px;font-weight:600;color:#00bcd4;">{{ $post->featured_image ? 'Replace image' : 'Choose image' }}</span>
+                                onmouseout="this.style.borderColor='#dde1ea';this.style.background='transparent';">
+                                <span style="font-size:12px;font-weight:600;color:#00bcd4;">
+                                    {{ $post->featured_image ? 'Replace image' : 'Choose image' }}
+                                </span>
                             </div>
                         </label>
                         <input type="file" name="featured_image" id="featured_image" accept="image/*" class="hidden"
                             onchange="previewImage(this)">
-                        <p style="font-size:11px;color:#d1d5db;margin-top:8px;">Recommended: 1200×630px · Max 2MB</p>
+                        <p style="font-size:11px;color:#b0bac9;margin-top:8px;">Recommended: 1200×630px · Max 2MB</p>
                     </div>
+
                 </div>
             </div>
         </form>
