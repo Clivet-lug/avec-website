@@ -14,6 +14,11 @@
             Back to Team
         </a>
 
+        {{-- DELETE FORM — lives outside the main form, triggered by button below --}}
+        <form id="delete-form" action="{{ route('admin.team.destroy', $member) }}" method="POST">
+            @csrf @method('DELETE')
+        </form>
+
         <form action="{{ route('admin.team.update', $member) }}" method="POST" enctype="multipart/form-data">
             @csrf @method('PUT')
             <div class="grid lg:grid-cols-3 gap-5">
@@ -75,7 +80,7 @@
                         </div>
                     </div>
 
-                    {{-- Danger zone --}}
+                    {{-- Danger zone — button submits the separate delete form above --}}
                     <div class="ac p-6" style="border-color:#fecaca;">
                         <div
                             style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f87171;margin-bottom:10px;">
@@ -83,16 +88,13 @@
                         </div>
                         <p style="font-size:11.5px;color:#94a3b8;margin-bottom:14px;">Permanently delete this member. This
                             cannot be undone.</p>
-                        <form action="{{ route('admin.team.destroy', $member) }}" method="POST"
-                            onsubmit="return confirm('Permanently delete {{ addslashes($member->name) }}?');">
-                            @csrf @method('DELETE')
-                            <button type="submit" class="w-full py-2.5 rounded-xl text-sm font-semibold transition-all"
-                                style="border:1px solid #fecaca;color:#f87171;background:transparent;"
-                                onmouseover="this.style.background='#fef2f2'"
-                                onmouseout="this.style.background='transparent'">
-                                Delete Member
-                            </button>
-                        </form>
+                        <button type="button"
+                            onclick="if(confirm('Permanently delete {{ addslashes($member->name) }}?')) document.getElementById('delete-form').submit();"
+                            class="w-full py-2.5 rounded-xl text-sm font-semibold transition-all"
+                            style="border:1px solid #fecaca;color:#f87171;background:transparent;"
+                            onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='transparent'">
+                            Delete Member
+                        </button>
                     </div>
 
                 </div>

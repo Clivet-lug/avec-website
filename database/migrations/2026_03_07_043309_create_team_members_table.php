@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('team_members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('position');  // Changed from 'role' to 'position'
+            $table->string('role');
             $table->text('bio')->nullable();
             $table->string('photo')->nullable();
             $table->string('email')->nullable();

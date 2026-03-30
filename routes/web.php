@@ -39,6 +39,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     // Category Management
     Route::resource('categories', BlogCategoryController::class);
 
-    // Team Management
-    Route::resource('team', AdminTeamMemberController::class);
+    // Team Management — 'parameters' maps the resource key to match controller's $member binding
+    Route::resource('team', AdminTeamMemberController::class)->parameters([
+        'team' => 'member',
+    ]);
 });
