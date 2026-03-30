@@ -1,12 +1,60 @@
 @extends('layouts.app')
 
 @section('title', 'About Us - AVEC Technologies')
-@section('meta_description', 'Learn about AVEC Technologies, a digital infrastructure and AI company building the
+@section('meta_description',
+    'Learn about AVEC Technologies, a digital infrastructure and AI company building the
     systems that power modern African institutions.')
 
 @section('content')
+
+    <style>
+        /* Light mode section backgrounds — About page */
+        html:not(.dark) #about-hero-section {
+            background: linear-gradient(160deg, #e8f4ff 0%, #eef0ff 55%, #f3f0ff 100%);
+        }
+
+        html:not(.dark) #about-who-section {
+            background: rgba(255, 255, 255, 0.38);
+        }
+
+        html:not(.dark) #about-what-section {
+            background: linear-gradient(180deg, #eef2f7 0%, #f3f0ff 100%);
+        }
+
+        html:not(.dark) #about-mv-section {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        html:not(.dark) #about-approach-section {
+            background: linear-gradient(160deg, #f0f7ff 0%, #f3f0ff 100%);
+        }
+
+        html:not(.dark) #about-leadership-section {
+            background: rgba(255, 255, 255, 0.38);
+        }
+
+        html:not(.dark) #about-cta-section {
+            background: linear-gradient(180deg, #eef2f7 0%, #f0eeff 100%);
+        }
+
+        /* Card body text in light mode */
+        html:not(.dark) .text-gray-400 {
+            color: #4a5270 !important;
+        }
+
+        /* Icon container backgrounds — readable tint on light */
+        html:not(.dark) .bg-avec-cyan\/20 {
+            background-color: rgba(0, 153, 170, 0.12) !important;
+        }
+
+        html:not(.dark) .bg-avec-purple\/20 {
+            background-color: rgba(108, 95, 212, 0.12) !important;
+        }
+    </style>
+
     <!-- Hero Section -->
-    <section class="relative min-h-[60vh] flex items-center pt-32 pb-20">
+    <section id="about-hero-section"
+        class="relative min-h-[60vh] flex items-center pt-32 pb-20 bg-avec-dark/30 dark:bg-avec-dark/30">
         <div class="max-w-7xl mx-auto px-6 w-full">
             <div class="text-center fade-in-up">
                 <span class="px-4 py-2 glass rounded-full text-sm font-medium text-avec-cyan inline-block mb-6">
@@ -27,7 +75,7 @@
     </section>
 
     <!-- About AVEC Technologies (WITH IMAGE) -->
-    <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
+    <section id="about-who-section" class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Image (NO CARD) -->
@@ -38,13 +86,13 @@
 
                 <!-- Text Content -->
                 <div class="prose prose-lg max-w-none fade-in-section">
-                    <p class="text-xl text-gray-300 leading-relaxed mb-6">
+                    <p class="text-xl text-gray-300 dark:text-gray-300 leading-relaxed mb-6">
                         We design and develop intelligent digital platforms that help governments, universities, financial
                         institutions, and enterprises modernize operations, manage data securely, and scale efficiently in a
                         rapidly digitizing world.
                     </p>
 
-                    <p class="text-lg text-gray-300 leading-relaxed">
+                    <p class="text-lg text-gray-300 dark:text-gray-300 leading-relaxed">
                         Across Africa, many organizations still operate on fragmented systems, manual processes, and
                         underutilized data. AVEC Technologies exists to bridge that gap by delivering reliable, scalable,
                         and future-ready technology infrastructure that enables institutions to operate with greater speed,
@@ -56,13 +104,13 @@
     </section>
 
     <!-- What We Do -->
-    <section class="relative py-20">
+    <section id="about-what-section" class="relative py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-in-section">
                 <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-avec-dark">
                     What We Do
                 </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto">
                     We build digital systems that support critical institutional operations
                 </p>
             </div>
@@ -76,7 +124,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Enterprise & Institutional Software Systems</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">Enterprise &
+                        Institutional Software Systems</h3>
                     <p class="text-gray-400">Custom platforms designed for complex institutional operations</p>
                 </div>
 
@@ -89,7 +138,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Digital Records & Document Management</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">Digital Records &
+                        Document Management</h3>
                     <p class="text-gray-400">Secure digitization and intelligent management of institutional records</p>
                 </div>
 
@@ -102,7 +152,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">RFID Asset Tracking Systems</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">RFID Asset Tracking
+                        Systems</h3>
                     <p class="text-gray-400">Real-time tracking and management of institutional assets</p>
                 </div>
 
@@ -115,7 +166,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Financial & Payment Infrastructure</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">Financial & Payment
+                        Infrastructure</h3>
                     <p class="text-gray-400">Payment rails, savings platforms, and fintech integrations</p>
                 </div>
 
@@ -128,7 +180,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Data & AI-Powered Intelligence</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">Data & AI-Powered
+                        Intelligence</h3>
                     <p class="text-gray-400">Decision intelligence systems that unlock the full value of institutional data
                     </p>
                 </div>
@@ -142,13 +195,14 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Workflow Automation & ERP Systems</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">Workflow Automation &
+                        ERP Systems</h3>
                     <p class="text-gray-400">Streamline operations and improve organizational efficiency</p>
                 </div>
             </div>
 
             <div class="text-center mt-12 fade-in-section">
-                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                <p class="text-lg text-gray-300 dark:text-gray-300 max-w-3xl mx-auto">
                     Our solutions are designed to help organizations streamline operations, improve accountability, and
                     unlock the full value of their data.
                 </p>
@@ -157,14 +211,14 @@
     </section>
 
     <!-- Vision & Mission -->
-    <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
+    <section id="about-mv-section" class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Mission -->
                 <div class="glass rounded-3xl p-12 border-l-4 border-avec-cyan fade-in-section">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-avec-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
@@ -181,7 +235,7 @@
                     style="animation-delay: 0.2s;">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-purple to-avec-cyan rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-avec-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
                             </path>
@@ -198,7 +252,7 @@
     </section>
 
     <!-- Our Approach (WITH IMAGE) -->
-    <section class="relative py-20">
+    <section id="about-approach-section" class="relative py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Text Content -->
@@ -208,13 +262,13 @@
                     </h2>
 
                     <div class="prose prose-lg max-w-none">
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        <p class="text-lg text-gray-300 dark:text-gray-300 leading-relaxed mb-6">
                             At AVEC Technologies, we combine technical expertise with a deep understanding of institutional
                             operations. Our approach focuses on building systems that are secure, scalable, and tailored to
                             the realities of African markets.
                         </p>
 
-                        <p class="text-lg text-gray-300 leading-relaxed">
+                        <p class="text-lg text-gray-300 dark:text-gray-300 leading-relaxed">
                             We believe that strong digital infrastructure is essential for economic growth, innovation, and
                             efficient public service delivery across the continent.
                         </p>
@@ -231,13 +285,13 @@
     </section>
 
     <!-- Leadership -->
-    <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
+    <section id="about-leadership-section" class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-in-section">
                 <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 dark:text-white text-avec-dark">
                     Leadership
                 </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto">
                     AVEC Technologies is led by a team committed to building reliable digital infrastructure for African
                     institutions.
                 </p>
@@ -255,22 +309,23 @@
 
                         <!-- Content -->
                         <div class="md:col-span-3 p-8 md:p-12">
-                            <h3 class="text-3xl md:text-4xl font-display font-bold mb-2">Violet Nswana Kaponda</h3>
+                            <h3 class="text-3xl md:text-4xl font-display font-bold mb-2 dark:text-white text-avec-dark">
+                                Violet Nswana Kaponda</h3>
                             <p class="text-xl md:text-2xl text-avec-cyan mb-6">Founder & CEO</p>
 
-                            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+                            <p class="text-base md:text-lg text-gray-300 dark:text-gray-300 leading-relaxed mb-6">
                                 Violet Nswana Kaponda is a technology strategist with experience in fintech systems, digital
                                 transformation, and enterprise platforms across the African technology ecosystem.
                             </p>
 
-                            <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+                            <p class="text-base md:text-lg text-gray-300 dark:text-gray-300 leading-relaxed mb-6">
                                 Under her leadership, AVEC Technologies focuses on designing scalable digital systems that
                                 help governments, universities, financial institutions, and enterprises modernize
                                 operations, strengthen data management, and unlock new opportunities through technology.
                             </p>
 
                             <p
-                                class="text-base md:text-lg text-gray-300 leading-relaxed font-medium italic border-l-4 border-avec-cyan pl-4">
+                                class="text-base md:text-lg text-gray-300 dark:text-gray-300 leading-relaxed font-medium italic border-l-4 border-avec-cyan pl-4">
                                 AVEC is driven by the belief that Africa's next era of growth will be powered by strong
                                 digital infrastructure built on the continent, for the continent.
                             </p>
@@ -282,7 +337,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="relative py-20">
+    <section id="about-cta-section" class="relative py-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 dark:text-white text-avec-dark">
                 Ready to Transform Your Institution?
@@ -295,7 +350,8 @@
                     class="px-10 py-5 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
                     Get In Touch
                 </a>
-                <a href="{{ route('services') }}" class="px-10 py-5 glass glass-hover rounded-full font-semibold text-lg">
+                <a href="{{ route('services') }}"
+                    class="px-10 py-5 glass glass-hover rounded-full font-semibold text-lg dark:text-white text-avec-dark">
                     View Solutions
                 </a>
             </div>

@@ -1,155 +1,136 @@
 @extends('layouts.admin')
-
 @section('title', 'Create Blog Post')
+@section('page_title', 'Create New Post')
+@section('page_subtitle', 'Write and publish a new blog post')
 
 @section('content')
-    <div class="space-y-6">
-        <!-- Header -->
-        <div class="flex justify-between items-center">
-            <div>
-                <h1 class="text-3xl font-display font-bold text-gray-900 dark:text-white">Create New Post</h1>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Write and publish a new blog post</p>
-            </div>
+    <div class="space-y-5">
+
+        <div class="flex items-center justify-between">
+            <h1 style="font-size:24px;font-weight:700;color:#0A0E27;">Create New Post</h1>
             <a href="{{ route('admin.blog.index') }}"
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-                ← Back to Posts
+                style="font-size:13px;font-weight:500;color:#9ca3af;text-decoration:none;display:inline-flex;align-items:center;gap:5px;">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Posts
             </a>
         </div>
 
-        <!-- Form -->
-        <form action="{{ route('admin.blog.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('admin.blog.store') }}" method="POST" enctype="multipart/form-data" id="blog-form">
             @csrf
+            <input type="hidden" name="content" id="content-input">
 
-            <div class="grid lg:grid-cols-3 gap-6">
-                <!-- Main Content -->
-                <div class="lg:col-span-2 space-y-6">
-                    <!-- Title -->
-                    <div class="bg-white dark:bg-avec-navy rounded-lg shadow p-6">
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            Title <span class="text-red-500">*</span>
-                        </label>
+            <div class="grid lg:grid-cols-3 gap-5">
+
+                {{-- Main --}}
+                <div class="lg:col-span-2 space-y-4">
+
+                    <div class="ac p-6">
+                        <label class="al">Title <span style="color:#ef4444;">*</span></label>
                         <input type="text" name="title" value="{{ old('title') }}" required
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white"
-                            placeholder="Enter post title">
+                            placeholder="Enter post title" class="ai" style="font-size:15px;padding:11px 14px;">
                         @error('title')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
 
-                    <!-- Excerpt -->
-                    <div class="bg-white dark:bg-avec-navy rounded-lg shadow p-6">
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            Excerpt <span class="text-red-500">*</span>
-                        </label>
-                        <textarea name="excerpt" rows="3" required
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white"
-                            placeholder="Brief summary of the post (shown in listings)">{{ old('excerpt') }}</textarea>
+                    <div class="ac p-6">
+                        <label class="al">Excerpt <span style="color:#ef4444;">*</span></label>
+                        <textarea name="excerpt" rows="3" required placeholder="Brief summary shown in post listings..." class="ai"
+                            style="resize:vertical;">{{ old('excerpt') }}</textarea>
                         @error('excerpt')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
 
-                    <!-- Content Editor -->
-                    <div class="bg-white dark:bg-avec-navy rounded-lg shadow p-6">
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            Content <span class="text-red-500">*</span>
-                        </label>
-                        <textarea name="content" id="content" rows="20">{{ old('content') }}</textarea>
+                    <div class="ac p-6">
+                        <label class="al">Content <span style="color:#ef4444;">*</span></label>
+                        <div id="quill-editor"></div>
                         @error('content')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
 
-                    <!-- SEO -->
-                    <div class="bg-white dark:bg-avec-navy rounded-lg shadow p-6">
-                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">SEO Settings</h3>
-
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Meta
-                                    Title</label>
-                                <input type="text" name="meta_title" value="{{ old('meta_title') }}"
-                                    class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white"
-                                    placeholder="Leave empty to use post title">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Meta
-                                    Description</label>
-                                <textarea name="meta_description" rows="2"
-                                    class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white"
-                                    placeholder="Leave empty to use excerpt">{{ old('meta_description') }}</textarea>
-                            </div>
+                    <div class="ac p-6 space-y-4">
+                        <div class="as">SEO Settings</div>
+                        <div>
+                            <label class="al">Meta Title</label>
+                            <input type="text" name="meta_title" value="{{ old('meta_title') }}"
+                                placeholder="Leave empty to use post title" class="ai">
+                        </div>
+                        <div>
+                            <label class="al">Meta Description</label>
+                            <textarea name="meta_description" rows="2" placeholder="Leave empty to use excerpt" class="ai"
+                                style="resize:vertical;">{{ old('meta_description') }}</textarea>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sidebar -->
-                <div class="space-y-6">
-                    <!-- Publish -->
-                    <div class="bg-white dark:bg-avec-navy rounded-lg shadow p-6">
-                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Publish</h3>
+                {{-- Sidebar --}}
+                <div class="space-y-4">
 
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                    Status <span class="text-red-500">*</span>
-                                </label>
-                                <select name="status" required
-                                    class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white">
-                                    <option value="draft" {{ old('status') === 'draft' ? 'selected' : '' }}>Draft</option>
-                                    <option value="published" {{ old('status') === 'published' ? 'selected' : '' }}>
-                                        Published</option>
-                                </select>
-                            </div>
-
-                            <div class="pt-4 border-t border-gray-200 dark:border-white/10">
-                                <button type="submit"
-                                    class="w-full px-6 py-3 bg-avec-cyan text-white rounded-lg hover:bg-avec-cyan/90 transition-colors font-semibold">
-                                    Create Post
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Category -->
-                    <div class="bg-white dark:bg-avec-navy rounded-lg shadow p-6">
-                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Category</h3>
-
+                    <div class="ac p-6 space-y-4">
+                        <div class="as">Publish</div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Select Category <span class="text-red-500">*</span>
-                            </label>
-                            <select name="category_id" required
-                                class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white">
-                                <option value="">Choose a category</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}"
-                                        {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                                        {{ $category->name }}
-                                    </option>
-                                @endforeach
+                            <label class="al">Status <span style="color:#ef4444;">*</span></label>
+                            <select name="status" required class="ai">
+                                <option value="draft" {{ old('status') === 'draft' ? 'selected' : '' }}>Draft</option>
+                                <option value="published" {{ old('status') === 'published' ? 'selected' : '' }}>Published
+                                </option>
                             </select>
-                            @error('category_id')
-                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                        </div>
+                        <div style="padding-top:14px;border-top:1px solid #f0f2f8;">
+                            <button type="submit"
+                                class="w-full py-2.5 rounded-xl text-white text-sm font-semibold hover:opacity-90 transition-all"
+                                style="background:#0A0E27;">
+                                Create Post
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Featured Image -->
-                    <div class="bg-white dark:bg-avec-navy rounded-lg shadow p-6">
-                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Featured Image</h3>
+                    <div class="ac p-6">
+                        <div class="as">Category</div>
+                        <label class="al">Select Category <span style="color:#ef4444;">*</span></label>
+                        <select name="category_id" required class="ai">
+                            <option value="">Choose a category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"
+                                    {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                        @enderror
+                    </div>
 
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Upload
-                                Image</label>
-                            <input type="file" name="featured_image" accept="image/*"
-                                class="w-full px-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-avec-cyan focus:border-transparent dark:bg-avec-dark dark:text-white">
-                            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Recommended: 1200x630px, Max 2MB</p>
-                            @error('featured_image')
-                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                    <div class="ac p-6">
+                        <div class="as">Featured Image</div>
+                        <div id="img-preview" class="hidden mb-4">
+                            <img id="img-preview-el" class="w-full rounded-xl object-cover"
+                                style="max-height:150px;border:1px solid #e8eaf0;">
                         </div>
+                        <label for="featured_image" class="block cursor-pointer">
+                            <div class="flex flex-col items-center justify-center py-6 rounded-xl transition-all"
+                                style="border:2px dashed #e5e7eb;"
+                                onmouseover="this.style.borderColor='#00D9FF';this.style.background='#f0feff';"
+                                onmouseout="this.style.borderColor='#e5e7eb';this.style.background='transparent';">
+                                <svg class="w-7 h-7 mb-2" style="color:#d1d5db;" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span style="font-size:12px;font-weight:600;color:#00bcd4;">Choose image</span>
+                                <span style="font-size:11px;color:#d1d5db;margin-top:2px;">PNG, JPG up to 2MB</span>
+                            </div>
+                        </label>
+                        <input type="file" name="featured_image" id="featured_image" accept="image/*" class="hidden"
+                            onchange="previewImage(this)">
+                        <p style="font-size:11px;color:#d1d5db;margin-top:8px;">Recommended: 1200×630px</p>
+                        @error('featured_image')
+                            <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -158,20 +139,52 @@
 @endsection
 
 @push('scripts')
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
     <script>
-        tinymce.init({
-            selector: '#content',
-            height: 500,
-            menubar: false,
-            plugins: [
-                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                'insertdatetime', 'media', 'table', 'help', 'wordcount'
-            ],
-            toolbar: 'undo redo | blocks | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-            content_style: 'body { font-family: Inter, sans-serif; font-size: 16px; color: #e5e7eb; background-color: #0A0E27; }',
-            skin: 'oxide-dark',
-            content_css: 'dark'
+        const quill = new Quill('#quill-editor', {
+            theme: 'snow',
+            placeholder: 'Start writing your post...',
+            modules: {
+                toolbar: [
+                    [{
+                        header: [1, 2, 3, false]
+                    }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{
+                        color: []
+                    }, {
+                        background: []
+                    }],
+                    [{
+                        list: 'ordered'
+                    }, {
+                        list: 'bullet'
+                    }],
+                    [{
+                        align: []
+                    }],
+                    ['link', 'image', 'blockquote', 'code-block'],
+                    ['clean']
+                ]
+            }
         });
+        @if (old('content'))
+            quill.root.innerHTML = `{!! old('content') !!}`;
+        @endif
+        document.getElementById('blog-form').addEventListener('submit', () => {
+            document.getElementById('content-input').value = quill.root.innerHTML;
+        });
+
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    document.getElementById('img-preview-el').src = e.target.result;
+                    document.getElementById('img-preview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 @endpush

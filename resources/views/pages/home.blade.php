@@ -37,7 +37,8 @@
                             class="px-8 py-3.5 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
                             Contact AVEC
                         </a>
-                        <a href="{{ route('services') }}" class="px-8 py-3.5 glass glass-hover rounded-full font-semibold">
+                        <a href="{{ route('services') }}"
+                            class="px-8 py-3.5 glass glass-hover rounded-full font-semibold dark:text-white text-avec-dark">
                             Our Services
                         </a>
                     </div>
@@ -71,7 +72,7 @@
                                 class="w-[85%] h-auto max-h-[95%] object-contain opacity-90 drop-shadow-[0_0_30px_rgba(0,217,255,0.25)] relative z-10"
                                 loading="lazy" id="africa-map-image">
 
-                            <!-- SVG Overlay - improved -->
+                            <!-- SVG Overlay -->
                             <svg class="absolute inset-0 w-full h-full z-20 pointer-events-none" viewBox="0 0 500 600"
                                 preserveAspectRatio="xMidYMid meet" aria-hidden="true">
                                 <defs>
@@ -152,7 +153,6 @@
                 return;
             }
 
-            // Start sequence after short delay
             setTimeout(() => {
                 linesGroup.style.opacity = '1';
 
@@ -164,19 +164,16 @@
                     line.style.transition =
                         `stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1) ${i * 180 + 600}ms`;
 
-                    // Trigger draw
                     setTimeout(() => {
                         line.style.strokeDashoffset = '0';
                     }, 100);
 
-                    // After draw, add flowing dash effect
                     setTimeout(() => {
                         line.style.strokeDasharray = '8 4';
                         line.style.animation = 'flowDash 4s linear infinite';
                     }, 2000 + i * 180);
                 });
 
-                // Nodes appear after most lines
                 setTimeout(() => {
                     nodesGroup.style.opacity = '1';
                     nodes.forEach((node, i) => {
@@ -192,7 +189,6 @@
         });
     </script>
 
-    <!-- Add to your CSS (app.css or <style>) -->
     <style>
         @keyframes flowDash {
             to {
@@ -228,10 +224,23 @@
                 r: 4 !important;
             }
         }
+
+        /* Light mode: section background alternation */
+        html:not(.dark) #home {
+            background: linear-gradient(160deg, #e8f4ff 0%, #eef0ff 55%, #f0eeff 100%);
+        }
+
+        html:not(.dark) #why-section {
+            background: rgba(255, 255, 255, 0.38);
+        }
+
+        html:not(.dark) #pillars-section {
+            background: linear-gradient(180deg, #eef2f7 0%, #f3f0ff 100%);
+        }
     </style>
 
     <!-- Why We Exist Section -->
-    <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
+    <section id="why-section" class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-in-section">
                 <span class="text-avec-cyan font-semibold text-sm uppercase tracking-wider">Why We Exist</span>
@@ -276,7 +285,7 @@
     </section>
 
     <!-- Three Pillars Section -->
-    <section class="relative py-20">
+    <section id="pillars-section" class="relative py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-in-section">
                 <span class="text-avec-cyan font-semibold text-sm uppercase tracking-wider">What We Do</span>
@@ -293,13 +302,14 @@
                 <div class="glass glass-hover rounded-2xl p-8 group cursor-pointer fade-in-section">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-avec-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01">
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Digital Infrastructure</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">Digital Infrastructure
+                    </h3>
                     <ul class="space-y-2 text-gray-300 dark:text-gray-300">
                         <li>• Core institutional platforms</li>
                         <li>• Payment systems</li>
@@ -314,13 +324,14 @@
                     style="animation-delay: 0.1s;">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-purple to-avec-cyan rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-avec-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">Bespoke Institutional Systems</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">Bespoke Institutional
+                        Systems</h3>
                     <ul class="space-y-2 text-gray-300 dark:text-gray-300">
                         <li>• ERP systems</li>
                         <li>• Document management</li>
@@ -335,13 +346,14 @@
                     style="animation-delay: 0.2s;">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-avec-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold mb-4">AI & Data Intelligence</h3>
+                    <h3 class="text-2xl font-display font-bold mb-4 dark:text-white text-avec-dark">AI & Data Intelligence
+                    </h3>
                     <ul class="space-y-2 text-gray-300 dark:text-gray-300">
                         <li>• Analytics dashboards</li>
                         <li>• Intelligence systems</li>
@@ -353,7 +365,7 @@
 
             <div class="text-center mt-12">
                 <a href="{{ route('services') }}"
-                    class="inline-flex items-center px-8 py-4 glass glass-hover rounded-full font-semibold">
+                    class="inline-flex items-center px-8 py-4 glass glass-hover rounded-full font-semibold dark:text-white text-avec-dark">
                     Explore All Services
                     <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>

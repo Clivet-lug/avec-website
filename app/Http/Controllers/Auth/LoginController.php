@@ -30,8 +30,20 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
 
-            // Check if user is admin
-            if (!Auth::user()->is_admin) {
+            $user = Auth::user();
+
+            // Debug: Log the user info
+            \Log::info('User logged in', [
+                'id' => $user->id,
+                'email' => $user->email,
+                'is_admin' => $user->is_admin,
+                'is_admin_type' => gettype($user->is_admin),
+                'is_admin_strict' => $user->is_admin === true,
+                'is_admin_loose' => $user->is_admin == true,
+            ]);
+
+            // Check if user is admin (use loose comparison)
+            if (!$user->is_admin) {
                 Auth::logout();
                 return back()->withErrors([
                     'email' => 'Unauthorized access. Admin privileges required.',

@@ -14,8 +14,8 @@
                     class="text-sm font-medium hover:text-avec-cyan transition-colors {{ request()->routeIs('about') ? 'text-avec-cyan' : '' }}">About</a>
                 <a href="{{ route('services') }}"
                     class="text-sm font-medium hover:text-avec-cyan transition-colors {{ request()->routeIs('services') ? 'text-avec-cyan' : '' }}">Services</a>
-                {{-- <a href="{{ route('team') }}"
-                    class="text-sm font-medium hover:text-avec-cyan transition-colors {{ request()->routeIs('team') ? 'text-avec-cyan' : '' }}">Team</a> --}}
+                <a href="{{ route('team') }}"
+                    class="text-sm font-medium hover:text-avec-cyan transition-colors {{ request()->routeIs('team') ? 'text-avec-cyan' : '' }}">Team</a>
                 <a href="{{ route('blog.index') }}"
                     class="text-sm font-medium hover:text-avec-cyan transition-colors {{ request()->routeIs('blog.*') ? 'text-avec-cyan' : '' }}">Blog</a>
 

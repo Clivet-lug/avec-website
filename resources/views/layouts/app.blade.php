@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="@yield('meta_description', 'AVEC Technologies - Digital Infrastructure & AI Intelligence Partner for Africa')">
-    <title>@yield('title', 'AVEC Technologies - Building Digital Systems for Africa')</title>
+    <title>@yield('title', 'AVEC Technologies - Building Africa\'s Digital Future')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 

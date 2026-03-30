@@ -1,12 +1,79 @@
 @extends('layouts.app')
 
 @section('title', 'Contact Us - AVEC Technologies')
-@section('meta_description', 'Get in touch with AVEC Technologies. Let\'s discuss how we can help transform your digital
+@section('meta_description',
+    'Get in touch with AVEC Technologies. Let\'s discuss how we can help transform your digital
     infrastructure.')
 
 @section('content')
+
+    <style>
+        html:not(.dark) #contact-hero-section {
+            background: linear-gradient(160deg, #e8f4ff 0%, #eef0ff 55%, #f3f0ff 100%);
+        }
+
+        html:not(.dark) #contact-form-section {
+            background: linear-gradient(180deg, #eef2f7 0%, #f3f0ff 100%);
+        }
+
+        /* Form inputs in light mode */
+        html:not(.dark) .bg-white\/5 {
+            background-color: rgba(255, 255, 255, 0.85) !important;
+            color: #0a0e27 !important;
+            border: 1px solid rgba(0, 0, 0, 0.10);
+        }
+
+        html:not(.dark) .bg-white\/5::placeholder {
+            color: #8090b0;
+        }
+
+        html:not(.dark) .bg-white\/5:focus {
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            border-color: rgba(0, 217, 255, 0.4);
+        }
+
+        /* Form labels */
+        html:not(.dark) form label {
+            color: #1e2a4a;
+        }
+
+        /* Contact info card text */
+        html:not(.dark) .text-gray-400 {
+            color: #4a5270 !important;
+        }
+
+        html:not(.dark) #contact-form-section h3.font-display,
+        html:not(.dark) #contact-form-section h3.font-semibold {
+            color: #0a0e27;
+        }
+
+        /* Icon container backgrounds */
+        html:not(.dark) .bg-avec-cyan\/20 {
+            background-color: rgba(0, 153, 170, 0.12) !important;
+        }
+
+        html:not(.dark) .bg-avec-purple\/20 {
+            background-color: rgba(108, 95, 212, 0.12) !important;
+        }
+
+        html:not(.dark) .bg-green-500\/20 {
+            background-color: rgba(34, 197, 94, 0.12) !important;
+        }
+
+        /* Response time card */
+        html:not(.dark) .bg-gradient-to-br.from-avec-cyan\/10 {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(155, 143, 245, 0.08)) !important;
+        }
+
+        /* Success alert */
+        html:not(.dark) .bg-avec-cyan\/20.border-avec-cyan {
+            background-color: rgba(0, 217, 255, 0.08) !important;
+        }
+    </style>
+
     <!-- Hero Section -->
-    <section class="relative min-h-[50vh] flex items-center pt-32 pb-20">
+    <section id="contact-hero-section"
+        class="relative min-h-[50vh] flex items-center pt-32 pb-20 bg-avec-dark/30 dark:bg-avec-dark/30">
         <div class="max-w-7xl mx-auto px-6 w-full">
             <div class="text-center fade-in-up">
                 <span class="px-4 py-2 glass rounded-full text-sm font-medium text-avec-cyan inline-block mb-6">
@@ -26,7 +93,7 @@
     </section>
 
     <!-- Contact Form & Info -->
-    <section class="relative py-20">
+    <section id="contact-form-section" class="relative py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Contact Form -->
@@ -41,7 +108,7 @@
                                 </svg>
                                 <div>
                                     <h3 class="font-semibold text-avec-cyan mb-1">Success!</h3>
-                                    <p class="text-gray-300">{{ session('success') }}</p>
+                                    <p class="text-gray-300 dark:text-gray-300">{{ session('success') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -53,18 +120,20 @@
 
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium mb-2">First Name <span
-                                        class="text-avec-cyan">*</span></label>
+                                <label class="block text-sm font-medium mb-2 dark:text-white text-avec-dark">First Name
+                                    <span class="text-avec-cyan">*</span></label>
                                 <input type="text" name="first_name" required value="{{ old('first_name') }}"
+                                    placeholder="John"
                                     class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5 transition-all @error('first_name') ring-2 ring-red-500 @enderror">
                                 @error('first_name')
                                     <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-2">Last Name <span
+                                <label class="block text-sm font-medium mb-2 dark:text-white text-avec-dark">Last Name <span
                                         class="text-avec-cyan">*</span></label>
                                 <input type="text" name="last_name" required value="{{ old('last_name') }}"
+                                    placeholder="Doe"
                                     class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5 transition-all @error('last_name') ring-2 ring-red-500 @enderror">
                                 @error('last_name')
                                     <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
@@ -74,31 +143,35 @@
 
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium mb-2">Email <span
+                                <label class="block text-sm font-medium mb-2 dark:text-white text-avec-dark">Email <span
                                         class="text-avec-cyan">*</span></label>
                                 <input type="email" name="email" required value="{{ old('email') }}"
+                                    placeholder="john@example.com"
                                     class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5 transition-all @error('email') ring-2 ring-red-500 @enderror">
                                 @error('email')
                                     <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-2">Phone</label>
+                                <label class="block text-sm font-medium mb-2 dark:text-white text-avec-dark">Phone</label>
                                 <input type="tel" name="phone" value="{{ old('phone') }}"
+                                    placeholder="+260 XXX XXX XXX"
                                     class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5 transition-all">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium mb-2">Organization</label>
+                            <label
+                                class="block text-sm font-medium mb-2 dark:text-white text-avec-dark">Organization</label>
                             <input type="text" name="organization" value="{{ old('organization') }}"
+                                placeholder="Your organization name"
                                 class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5 transition-all">
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium mb-2">Message <span
+                            <label class="block text-sm font-medium mb-2 dark:text-white text-avec-dark">Message <span
                                     class="text-avec-cyan">*</span></label>
-                            <textarea name="message" rows="6" required
+                            <textarea name="message" rows="6" required placeholder="Tell us about your project or inquiry..."
                                 class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-avec-cyan bg-white/5 transition-all resize-none @error('message') ring-2 ring-red-500 @enderror">{{ old('message') }}</textarea>
                             @error('message')
                                 <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
@@ -106,7 +179,7 @@
                         </div>
 
                         <button type="submit"
-                            class="w-full px-8 py-4 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
+                            class="w-full px-8 py-4 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold text-lg text-avec-dark hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
                             Send Message
                         </button>
                     </form>
@@ -139,7 +212,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-1">Email</h3>
+                                    <h3 class="font-semibold text-lg mb-1 dark:text-white text-avec-dark">Email</h3>
                                     <a href="mailto:info@avectechnologies.com"
                                         class="text-avec-cyan hover:text-avec-purple transition-colors">
                                         info@avectechnologies.com
@@ -159,7 +232,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-1">WhatsApp</h3>
+                                    <h3 class="font-semibold text-lg mb-1 dark:text-white text-avec-dark">WhatsApp</h3>
                                     <p class="text-gray-400 text-sm">Quick response, instant communication</p>
                                     <a href="https://wa.me/260763959660" target="_blank"
                                         class="text-green-500 hover:text-green-400 transition-colors text-sm">
@@ -184,7 +257,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-1">Location</h3>
+                                    <h3 class="font-semibold text-lg mb-1 dark:text-white text-avec-dark">Location</h3>
                                     <p class="text-gray-400">Lusaka, Zambia</p>
                                 </div>
                             </div>
@@ -193,7 +266,7 @@
 
                     <!-- Additional Info -->
                     <div class="glass rounded-2xl p-8 bg-gradient-to-br from-avec-cyan/10 to-avec-purple/10">
-                        <h3 class="text-xl font-display font-bold mb-4">Response Time</h3>
+                        <h3 class="text-xl font-display font-bold mb-4 dark:text-white text-avec-dark">Response Time</h3>
                         <p class="text-gray-300 dark:text-gray-300 mb-4">
                             We typically respond to inquiries within 24 hours during business days.
                         </p>

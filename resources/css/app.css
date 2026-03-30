@@ -68,7 +68,7 @@ html {
 
 /* Light mode scrollbar */
 html:not(.dark) ::-webkit-scrollbar-track {
-    background: #f8f9fa;
+    background: #eef2f7;
 }
 
 html:not(.dark) ::-webkit-scrollbar-thumb {
@@ -133,40 +133,153 @@ html {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Light mode styles */
+/* =============================================
+   LIGHT MODE OVERRIDES
+   ============================================= */
+
 html:not(.dark) body {
-    background: #f8f9fa;
-    color: #1e2a4a;
+    background: #f0f4fb;
+    color: #0a0e27;
 }
 
+/* Gradient mesh — strong enough to feel like the dark mode atmosphere, just lighter */
 html:not(.dark) .gradient-mesh {
     background:
-        radial-gradient(at 0% 0%, rgba(0, 217, 255, 0.08) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, rgba(0, 217, 255, 0.22) 0px, transparent 50%),
         radial-gradient(
             at 100% 0%,
-            rgba(155, 143, 245, 0.08) 0px,
+            rgba(155, 143, 245, 0.2) 0px,
             transparent 50%
         ),
         radial-gradient(
             at 100% 100%,
-            rgba(0, 217, 255, 0.05) 0px,
+            rgba(0, 217, 255, 0.14) 0px,
             transparent 50%
         ),
         radial-gradient(
             at 0% 100%,
-            rgba(155, 143, 245, 0.05) 0px,
+            rgba(155, 143, 245, 0.14) 0px,
             transparent 50%
         );
 }
 
+/* Glass cards in light mode: white-tinted with real depth */
 html:not(.dark) .glass {
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.07),
+        0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 html:not(.dark) .glass-hover:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Floating orbs — visible and atmospheric in light mode */
+html:not(.dark) .bg-avec-cyan\/20 {
+    background-color: rgba(0, 217, 255, 0.28) !important;
+}
+html:not(.dark) .bg-avec-purple\/20 {
+    background-color: rgba(155, 143, 245, 0.26) !important;
+}
+
+/* Section background alternation for light mode */
+html:not(.dark) .bg-avec-dark\/50 {
+    background-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Text contrast fixes */
+html:not(.dark) .text-white {
+    color: #0a0e27 !important;
+}
+
+html:not(.dark) .dark\:text-white {
+    color: #0a0e27 !important;
+}
+
+html:not(.dark) .text-gray-300,
+html:not(.dark) .dark\:text-gray-300 {
+    color: #4a5270 !important;
+}
+
+html:not(.dark) .text-gray-400 {
+    color: #6b7a99 !important;
+}
+
+/* Cyan and purple text — darken for light bg readability */
+html:not(.dark) .text-avec-cyan {
+    color: #0097a7 !important;
+}
+
+html:not(.dark) .text-avec-purple {
+    color: #6c5fd4 !important;
+}
+
+/* Border accent lines on why-cards */
+html:not(.dark) .border-avec-cyan {
+    border-color: #00d9ff !important;
+}
+html:not(.dark) .border-avec-purple {
+    border-color: #9b8ff5 !important;
+}
+
+/* Navbar in light mode */
+html:not(.dark) #navbar {
+    background-color: rgba(255, 255, 255, 0.78) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+html:not(.dark) #navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Section backgrounds — alternating tinted panels */
+html:not(.dark) .light-section-alt {
+    background: linear-gradient(180deg, #eef2f7 0%, #f0eeff 100%);
+}
+
+html:not(.dark) .light-section-white {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Prose styles (blog) — light mode */
+html:not(.dark) .prose {
+    color: #1e2a4a;
+}
+
+html:not(.dark) .prose strong {
+    color: #0a0e27;
+}
+
+html:not(.dark) .prose h2 {
+    color: #0097a7;
+}
+
+html:not(.dark) .prose h3 {
+    color: #6c5fd4;
+}
+
+html:not(.dark) .prose blockquote {
+    color: #4a5270;
+    border-left-color: #00d9ff;
+}
+
+html:not(.dark) .prose code {
+    color: #0097a7;
+    background: rgba(0, 217, 255, 0.08);
+}
+
+html:not(.dark) .prose pre {
+    background: rgba(0, 0, 0, 0.04);
 }
 
 /* Fix any layout issues */

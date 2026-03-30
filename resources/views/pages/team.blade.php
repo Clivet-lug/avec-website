@@ -1,12 +1,72 @@
 @extends('layouts.app')
 
 @section('title', 'Our Team - AVEC Technologies')
-@section('meta_description', 'Meet the team behind AVEC Technologies - excellence over mediocrity, security-first
+@section('meta_description',
+    'Meet the team behind AVEC Technologies - excellence over mediocrity, security-first
     thinking, and long-term architecture mindset.')
 
 @section('content')
+
+    <style>
+        html:not(.dark) #team-hero-section {
+            background: linear-gradient(160deg, #e8f4ff 0%, #eef0ff 55%, #f3f0ff 100%);
+        }
+
+        html:not(.dark) #team-grid-section {
+            background: linear-gradient(180deg, #eef2f7 0%, #f3f0ff 100%);
+        }
+
+        html:not(.dark) #team-values-section {
+            background: rgba(255, 255, 255, 0.38);
+        }
+
+        html:not(.dark) #team-cta-section {
+            background: linear-gradient(160deg, #f0f7ff 0%, #f3f0ff 100%);
+        }
+
+        /* Team card text */
+        html:not(.dark) .text-gray-400 {
+            color: #4a5270 !important;
+        }
+
+        /* Icon container backgrounds */
+        html:not(.dark) .bg-avec-cyan\/20 {
+            background-color: rgba(0, 153, 170, 0.12) !important;
+        }
+
+        html:not(.dark) .bg-avec-purple\/20 {
+            background-color: rgba(108, 95, 212, 0.12) !important;
+        }
+
+        /* Team member card name & social icon hover */
+        html:not(.dark) .glass.rounded-3xl h3 {
+            color: #0a0e27;
+        }
+
+        /* Social icon default state */
+        html:not(.dark) .text-gray-400.hover\:text-avec-cyan {
+            color: #6b7a99 !important;
+        }
+
+        /* Avatar initials — keep gradient bg, darken text */
+        html:not(.dark) .bg-gradient-to-br.from-avec-cyan.to-avec-purple.rounded-full {
+            color: #0a0e27;
+        }
+
+        /* Border separator in social links */
+        html:not(.dark) .border-white\/10 {
+            border-color: rgba(0, 0, 0, 0.08) !important;
+        }
+
+        /* Value card headings */
+        html:not(.dark) #team-values-section h3 {
+            color: #0a0e27;
+        }
+    </style>
+
     <!-- Hero Section -->
-    <section class="relative min-h-[60vh] flex items-center pt-32 pb-20">
+    <section id="team-hero-section"
+        class="relative min-h-[60vh] flex items-center pt-32 pb-20 bg-avec-dark/30 dark:bg-avec-dark/30">
         <div class="max-w-7xl mx-auto px-6 w-full">
             <div class="text-center fade-in-up">
                 <span class="px-4 py-2 glass rounded-full text-sm font-medium text-avec-cyan inline-block mb-6">
@@ -26,7 +86,7 @@
     </section>
 
     <!-- Team Grid -->
-    <section class="relative py-20">
+    <section id="team-grid-section" class="relative py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach ($team as $member)
@@ -37,12 +97,13 @@
                                 class="w-32 h-32 mx-auto mb-6 rounded-full object-cover ring-4 ring-avec-cyan/50 group-hover:ring-avec-purple/50 transition-all">
                         @else
                             <div
-                                class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-full flex items-center justify-center text-3xl font-bold group-hover:scale-110 transition-transform">
+                                class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-avec-cyan to-avec-purple rounded-full flex items-center justify-center text-3xl font-bold text-avec-dark group-hover:scale-110 transition-transform">
                                 {{ substr($member->name, 0, 1) }}{{ substr(explode(' ', $member->name)[1] ?? '', 0, 1) }}
                             </div>
                         @endif
 
-                        <h3 class="text-2xl font-display font-bold mb-2">{{ $member->name }}</h3>
+                        <h3 class="text-2xl font-display font-bold mb-2 dark:text-white text-avec-dark">{{ $member->name }}
+                        </h3>
                         <p class="text-avec-cyan text-base font-semibold mb-4">{{ $member->role }}</p>
 
                         @if ($member->bio)
@@ -92,7 +153,7 @@
     </section>
 
     <!-- Team Values -->
-    <section class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
+    <section id="team-values-section" class="relative py-20 bg-avec-dark/50 dark:bg-avec-dark/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-in-section">
                 <span class="text-avec-purple font-semibold text-sm uppercase tracking-wider">Our Values</span>
@@ -110,7 +171,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Excellence over mediocrity</h3>
+                    <h3 class="text-xl font-display font-bold mb-2 dark:text-white text-avec-dark">Excellence over
+                        mediocrity</h3>
                     <p class="text-gray-400 text-sm">We hold ourselves to the highest standards in everything we build</p>
                 </div>
 
@@ -122,7 +184,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Security-first thinking</h3>
+                    <h3 class="text-xl font-display font-bold mb-2 dark:text-white text-avec-dark">Security-first thinking
+                    </h3>
                     <p class="text-gray-400 text-sm">Security is embedded in every decision and every line of code</p>
                 </div>
 
@@ -134,7 +197,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Long-term architecture mindset</h3>
+                    <h3 class="text-xl font-display font-bold mb-2 dark:text-white text-avec-dark">Long-term architecture
+                        mindset</h3>
                     <p class="text-gray-400 text-sm">We build for the future, not just for today</p>
                 </div>
 
@@ -146,7 +210,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Documentation culture</h3>
+                    <h3 class="text-xl font-display font-bold mb-2 dark:text-white text-avec-dark">Documentation culture
+                    </h3>
                     <p class="text-gray-400 text-sm">Every system is thoroughly documented for sustainability</p>
                 </div>
 
@@ -158,7 +223,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Ownership, not excuses</h3>
+                    <h3 class="text-xl font-display font-bold mb-2 dark:text-white text-avec-dark">Ownership, not excuses
+                    </h3>
                     <p class="text-gray-400 text-sm">We take full responsibility for outcomes and solutions</p>
                 </div>
 
@@ -169,7 +235,7 @@
                                 d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-2">Speed + Precision</h3>
+                    <h3 class="text-xl font-display font-bold mb-2 dark:text-white text-avec-dark">Speed + Precision</h3>
                     <p class="text-gray-400 text-sm">Fast execution without compromising on quality</p>
                 </div>
             </div>
@@ -177,7 +243,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="relative py-20">
+    <section id="team-cta-section" class="relative py-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 dark:text-white text-avec-dark">
                 Want to Join Our Team?
@@ -186,7 +252,7 @@
                 We're always looking for exceptional talent who share our values.
             </p>
             <a href="{{ route('contact') }}"
-                class="inline-block px-10 py-5 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
+                class="inline-block px-10 py-5 bg-gradient-to-r from-avec-cyan to-avec-purple rounded-full font-semibold text-lg text-avec-dark hover:shadow-2xl hover:shadow-avec-cyan/50 transition-all transform hover:scale-105">
                 Get In Touch
             </a>
         </div>
