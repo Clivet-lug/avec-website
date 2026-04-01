@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'AVEC Technologies - Building Digital Systems for Africa')
+@section('title', 'AVEC Technologies - Building Africa\'s Digital Future')
 @section('meta_description',
     'Digital Infrastructure & AI Intelligence Partner for Africa. We build the systems that
     power African economies.')
