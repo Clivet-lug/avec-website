@@ -20,9 +20,9 @@
                     <li><a href="{{ route('services') }}"
                             class="text-gray-400 dark:text-gray-400 hover:text-avec-cyan transition-colors">Services</a>
                     </li>
-                    <li><a href="{{ route('team') }}"
+                    {{-- <li><a href="{{ route('team') }}"
                             class="text-gray-400 dark:text-gray-400 hover:text-avec-cyan transition-colors">Team</a>
-                    </li>
+                    </li> --}}
                     <li><a href="{{ route('blog.index') }}"
                             class="text-gray-400 dark:text-gray-400 hover:text-avec-cyan transition-colors">Blog</a>
                     </li>

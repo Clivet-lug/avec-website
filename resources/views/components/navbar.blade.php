@@ -61,8 +61,8 @@
                     class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">About</a>
                 <a href="{{ route('services') }}"
                     class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">Services</a>
-                <a href="{{ route('team') }}"
-                    class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">Team</a>
+                {{-- <a href="{{ route('team') }}"
+                    class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">Team</a> --}}
                 <a href="{{ route('blog.index') }}"
                     class="block text-sm font-medium hover:text-avec-cyan transition-colors mobile-link">Blog</a>
                 <a href="{{ route('contact') }}"
